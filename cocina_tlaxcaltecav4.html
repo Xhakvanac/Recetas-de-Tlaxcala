@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabores de Tlaxcala · Gastronomía Tlaxcalteca</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5ede0;
+    --warm-white: #faf6f0;
+    --terracotta: #a83210;
+    --terracotta-light: #c94e25;
+    --terracotta-dark: #6e1e05;
+    --gold: #c8870a;
+    --gold-light: #e8a820;
+    --bark: #4a2c10;
+    --bark-light: #6a4228;
+    --forest: #2d5a1a;
+    --sage: #6a9a50;
+    --text-dark: #1a0a00;
+    --text-mid: #4a2c10;
+    --text-light: #8a6040;
+    --border: #ddc8a8;
+    --shadow: rgba(74,44,16,0.15);
+    --card-bg: #fffcf6;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(168,50,16,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(200,135,10,0.08) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a2c10' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events:none; z-index:0;
+  }
+
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bark);
+    border-bottom: 3px solid var(--gold);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 900; font-style: italic;
+    color: var(--cream);
+    letter-spacing: -0.5px;
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer;
+  }
+  .logo span { color: var(--gold-light); }
+  .logo-icon { font-size: 1.8rem; }
+
+  nav { display: flex; gap: 0.5rem; align-items: center; }
+  .nav-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
+    color: var(--cream); padding: 8px 16px; border-radius: 6px;
+    transition: all 0.2s; letter-spacing: 0.3px;
+  }
+  .nav-btn:hover { background: rgba(255,255,255,0.1); }
+  .nav-btn.active { background: var(--terracotta); color: #fff; }
+  .nav-btn.cta { background: var(--gold); color: var(--bark); font-weight: 700; }
+  .nav-btn.cta:hover { background: var(--gold-light); }
+
+  .user-chip {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12);
+    padding: 6px 14px 6px 8px; border-radius: 30px;
+    font-size: 0.82rem; color: var(--cream);
+  }
+  .user-chip .avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .avatar.visitante { background: var(--sage); }
+  .avatar.usuario { background: var(--terracotta); }
+  .avatar.admin { background: var(--gold); color: var(--bark); }
+
+  .app { position: relative; z-index: 1; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--terracotta-dark) 0%, var(--terracotta) 45%, #7a3820 100%);
+    color: #fff; padding: 80px 2rem 60px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
+    background: var(--warm-white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(200,135,10,0.25); border: 1px solid var(--gold-light);
+    color: var(--gold-light); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 30px; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 900;
+    line-height: 1.1; margin-bottom: 16px;
+  }
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+  .hero p { font-size: 1.1rem; opacity: 0.85; max-width: 560px; margin: 0 auto 32px; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-hero {
+    padding: 14px 32px; border-radius: 8px; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+    transition: all 0.25s; letter-spacing: 0.2px;
+  }
+  .btn-hero.primary { background: var(--gold); color: var(--bark); }
+  .btn-hero.primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .btn-hero.secondary { background: rgba(255,255,255,0.15); color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+  .btn-hero.secondary:hover { background: rgba(255,255,255,0.25); }
+
+  .section { display: none; padding: 40px 0; max-width: 1280px; margin: 0 auto; padding: 40px 2rem; }
+  .section.visible { display: block; animation: fadeIn 0.35s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--bark);
+  }
+  .section-header h2 span { color: var(--terracotta); }
+
+  .filters {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;
+  }
+  .filter-btn {
+    padding: 8px 18px; border-radius: 30px; border: 2px solid var(--border);
+    background: var(--card-bg); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
+    color: var(--text-mid); transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--terracotta); background: var(--terracotta); color: #fff;
+  }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .recipe-card {
+    background: var(--card-bg);
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 16px var(--shadow);
+    transition: all 0.3s; cursor: pointer;
+    position: relative;
+  }
+  .recipe-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(74,44,16,0.22);
+  }
+  .recipe-thumb {
+    height: 200px; display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; position: relative; overflow: hidden;
+  }
+  .recipe-thumb::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.3));
+  }
+  .recipe-badge {
+    position: absolute; top: 12px; right: 12px; z-index: 1;
+    background: var(--gold); color: var(--bark);
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px;
+  }
+  .recipe-body { padding: 20px; }
+  .recipe-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--bark); margin-bottom: 6px;
+  }
+  .recipe-meta {
+    display: flex; gap: 14px; font-size: 0.8rem; color: var(--text-light);
+    margin-bottom: 12px; flex-wrap: wrap;
+  }
+  .recipe-meta span { display: flex; align-items: center; gap: 4px; }
+  .recipe-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 16px; }
+  .recipe-author {
+    font-size: 0.8rem; color: var(--text-light);
+    border-top: 1px solid var(--border); padding-top: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .recipe-actions { display: flex; gap: 8px; }
+  .btn-sm {
+    padding: 7px 16px; border-radius: 6px; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .btn-sm.view { background: var(--terracotta); color: #fff; }
+  .btn-sm.view:hover { background: var(--terracotta-dark); }
+  .btn-sm.edit { background: var(--cream); color: var(--bark); border: 1px solid var(--border); }
+  .btn-sm.edit:hover { background: var(--gold); color: var(--bark); }
+  .btn-sm.delete { background: #fee; color: #c00; border: 1px solid #fcc; }
+  .btn-sm.delete:hover { background: #c00; color: #fff; }
+
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(26,10,0,0.7); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+  .modal {
+    background: var(--warm-white); border-radius: 20px;
+    width: 100%; max-width: 660px; max-height: 90vh;
+    overflow-y: auto; box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+    border: 1px solid var(--border);
+  }
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 28px 0; position: sticky; top: 0;
+    background: var(--warm-white); z-index: 1;
+    border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 0;
+  }
+  .modal-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--bark);
+  }
+  .modal-close {
+    width: 36px; height: 36px; border-radius: 50%; border: none;
+    background: var(--cream); cursor: pointer; font-size: 1.2rem; color: var(--text-mid);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .modal-close:hover { background: var(--terracotta); color: #fff; }
+  .modal-body { padding: 24px 28px 28px; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-grid .full { grid-column: 1 / -1; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 0.82rem; font-weight: 600; color: var(--text-mid); letter-spacing: 0.3px; text-transform: uppercase; }
+  .field input, .field select, .field textarea {
+    padding: 12px 14px; border-radius: 10px;
+    border: 2px solid var(--border); background: var(--card-bg);
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--text-dark);
+    transition: border-color 0.2s; outline: none;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--terracotta);
+  }
+  .field textarea { resize: vertical; min-height: 90px; }
+
+  .form-actions {
+    display: flex; gap: 12px; justify-content: flex-end;
+    margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border);
+  }
+  .btn-cancel {
+    padding: 12px 24px; border-radius: 8px;
+    border: 2px solid var(--border); background: none;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600;
+    color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+  }
+  .btn-cancel:hover { border-color: var(--bark); color: var(--bark); }
+  .btn-primary {
+    padding: 12px 28px; border-radius: 8px; border: none;
+    background: var(--terracotta); color: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+
+  .detail-hero {
+    height: 220px; display: flex; align-items: center; justify-content: center;
+    font-size: 7rem; background: linear-gradient(135deg, var(--cream), #eeddc8);
+    border-radius: 12px; margin-bottom: 20px;
+  }
+  .detail-meta {
+    display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px;
+  }
+  .detail-meta-item {
+    display: flex; flex-direction: column; align-items: center;
+    background: var(--cream); padding: 12px 18px; border-radius: 10px;
+    min-width: 80px;
+  }
+  .detail-meta-item .icon { font-size: 1.4rem; margin-bottom: 4px; }
+  .detail-meta-item .val { font-size: 0.95rem; font-weight: 700; color: var(--bark); }
+  .detail-meta-item .lbl { font-size: 0.72rem; color: var(--text-light); }
+  .detail-title { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; color:var(--bark); margin-bottom:8px; }
+  .detail-by { font-size:0.85rem; color:var(--text-light); margin-bottom:16px; }
+  .detail-desc { color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+  .detail-h { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--terracotta); margin-bottom:10px; }
+  .ingredients-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .ingredients-list li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 12px; background: var(--cream); border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  .ingredients-list li::before { content: '🌿'; font-size: 0.9rem; }
+  .steps-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .steps-list li {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 12px; background: var(--card-bg); border-radius: 10px;
+    border: 1px solid var(--border); font-size: 0.9rem; line-height: 1.6;
+  }
+  .step-num {
+    min-width: 28px; height: 28px; border-radius: 50%;
+    background: var(--terracotta); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .history-text { line-height: 1.8; color: var(--text-mid); font-size: 0.95rem; }
+  .history-text p { margin-bottom: 16px; }
+  .history-section { background: var(--cream); border-left: 4px solid var(--gold); padding: 16px 20px; border-radius: 0 10px 10px 0; margin-bottom: 20px; }
+  .history-section h4 { font-family:'Playfair Display',serif; font-weight:700; color:var(--bark); margin-bottom:8px; }
+
+  /* Recipe extra sections */
+  /* ── Pending/approval styles ─────────────────────────── */
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+  }
+  .status-badge.pending { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+  .status-badge.approved { background: #d1e7dd; color: #0f5132; border: 1px solid #198754; }
+  .status-badge.rejected { background: #f8d7da; color: #842029; border: 1px solid #dc3545; }
+
+  .pending-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;
+    border-radius: 16px;
+  }
+  .pending-overlay-label {
+    background: #fff3cd; color: #856404;
+    font-size: 0.78rem; font-weight: 700; padding: 8px 16px; border-radius: 20px;
+    border: 2px solid #ffc107; letter-spacing: 0.5px;
+  }
+
+  .approval-card {
+    background: var(--card-bg); border-radius: 14px; border: 2px solid #ffc107;
+    padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start;
+    margin-bottom: 14px; box-shadow: 0 2px 10px rgba(133,100,4,0.1);
+  }
+  .approval-card .ac-emoji { font-size: 2.5rem; line-height: 1; }
+  .approval-card .ac-body { flex: 1; min-width: 0; }
+  .approval-card .ac-title { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--bark); margin-bottom:4px; }
+  .approval-card .ac-meta { font-size:0.8rem; color:var(--text-light); margin-bottom:10px; }
+  .approval-card .ac-desc { font-size:0.85rem; color:var(--text-mid); margin-bottom:12px; line-height:1.5; }
+  .approval-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .btn-approve { padding:8px 18px; border-radius:8px; border:none; cursor:pointer; font-size:0.82rem; font-weight:700; background:#198754; color:#fff; transition:all 0.2s; }
+  .btn-approve:hover { background:#146c43; }
+  .btn-reject { padding:8px 18px; border-radius:8px; border:2px solid #dc3545; cursor:pointer; font-size:0.82rem; font-weight:700; background:transparent; color:#dc3545; transition:all 0.2s; }
+  .btn-reject:hover { background:#dc3545; color:#fff; }
+  .btn-preview { padding:8px 18px; border-radius:8px; border:2px solid var(--border); cursor:pointer; font-size:0.82rem; font-weight:700; background:transparent; color:var(--text-mid); transition:all 0.2s; }
+  .btn-preview:hover { border-color:var(--terracotta); color:var(--terracotta); }
+
+  .empty-pending { text-align:center; padding:40px 20px; color:var(--text-light); }
+  .empty-pending .ep-icon { font-size:3rem; margin-bottom:12px; }
+  .empty-pending h4 { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--bark); margin-bottom:6px; }
+
+  .pending-notice {
+    background: #fff8e1; border: 1px solid #ffc107; border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 20px; font-size: 0.88rem;
+    display: flex; gap: 10px; align-items: flex-start; color: #856404;
+  }
+  .pending-notice strong { display: block; margin-bottom: 2px; color: #664d03; }
+
+  .recipe-img-gallery { display:flex; gap:10px; overflow-x:auto; margin-bottom:20px; padding-bottom:4px; scroll-snap-type:x mandatory; }
+  .recipe-img-gallery img { height:180px; min-width:240px; object-fit:cover; border-radius:10px; flex-shrink:0; scroll-snap-align:start; border:2px solid var(--border); }
+  .recipe-img-gallery img:hover { transform:scale(1.02); transition:transform 0.2s; }
+  .recipe-history-box { background:linear-gradient(135deg,#fdf6eb,#fff8f0); border:1px solid #e8d5b0; border-radius:12px; padding:18px 20px; margin-bottom:20px; }
+  .recipe-history-box .rh-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .recipe-history-box .rh-header h4 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--bark); }
+  .recipe-history-box p { font-size:0.9rem; line-height:1.75; color:var(--text-mid); }
+  .curiosidades-list { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+  .curiosidad-item { display:flex; gap:12px; align-items:flex-start; background:linear-gradient(135deg,#f0fce8,#f5fff0); border:1px solid #c8e8b0; border-radius:10px; padding:12px 14px; font-size:0.88rem; color:var(--text-mid); line-height:1.6; }
+  .curiosidad-item .ci-icon { font-size:1.3rem; flex-shrink:0; margin-top:1px; }
+  .detail-tabs { display:flex; gap:0; margin-bottom:20px; border-bottom:2px solid var(--border); }
+  .detail-tab { padding:10px 20px; border:none; background:none; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:0.88rem; font-weight:600; color:var(--text-light); border-bottom:3px solid transparent; margin-bottom:-2px; transition:all 0.2s; }
+  .detail-tab.active { color:var(--terracotta); border-bottom-color:var(--terracotta); }
+  .detail-tab-panel { display:none; }
+  .detail-tab-panel.active { display:block; animation:fadeIn 0.2s ease; }
+  .img-upload-area { border:2px dashed var(--border); border-radius:10px; padding:16px; text-align:center; background:var(--card-bg); margin-bottom:12px; cursor:pointer; transition:border-color 0.2s; }
+  .img-upload-area:hover { border-color:var(--terracotta); }
+  .img-preview-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .img-preview-thumb { position:relative; width:80px; height:80px; border-radius:8px; overflow:hidden; border:2px solid var(--border); }
+  .img-preview-thumb img { width:100%; height:100%; object-fit:cover; }
+  .img-preview-thumb .remove-img { position:absolute; top:2px; right:2px; background:rgba(0,0,0,0.6); color:#fff; border:none; border-radius:50%; width:18px; height:18px; font-size:0.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1; }
+  .curiosidades-input-list { display:flex; flex-direction:column; gap:8px; }
+  .curiosidad-input-row { display:flex; gap:8px; align-items:center; }
+  .curiosidad-input-row input { flex:1; padding:10px 12px; border-radius:8px; border:2px solid var(--border); font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--text-dark); outline:none; transition:border-color 0.2s; background:var(--card-bg); }
+  .curiosidad-input-row input:focus { border-color:var(--terracotta); }
+  .btn-icon { width:34px; height:34px; border-radius:8px; border:none; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s; }
+  .btn-icon.add { background:var(--sage); color:#fff; }
+  .btn-icon.add:hover { background:var(--forest); }
+  .btn-icon.remove { background:#fee; color:#c00; border:1px solid #fcc; }
+  .btn-icon.remove:hover { background:#c00; color:#fff; }
+  .form-section-label { font-size:0.78rem; font-weight:700; color:var(--text-light); letter-spacing:0.5px; text-transform:uppercase; margin-bottom:8px; display:block; }
+
+  .admin-tabs { display: flex; gap: 0; margin-bottom: 28px; border-bottom: 2px solid var(--border); }
+  .admin-tab {
+    padding: 12px 24px; border: none; background: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600;
+    color: var(--text-light); border-bottom: 3px solid transparent; margin-bottom: -2px;
+    transition: all 0.2s;
+  }
+  .admin-tab.active { color: var(--terracotta); border-bottom-color: var(--terracotta); }
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    text-align: left; padding: 10px 14px;
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--text-light); background: var(--cream); border-bottom: 2px solid var(--border);
+  }
+  .data-table td {
+    padding: 12px 14px; font-size: 0.88rem; color: var(--text-dark);
+    border-bottom: 1px solid var(--border); vertical-align: middle;
+  }
+  .data-table tr:hover td { background: rgba(168,50,16,0.03); }
+  .role-tag {
+    display: inline-block; padding: 3px 10px; border-radius: 20px;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .role-tag.visitante { background: #e8f5e9; color: #2d5a27; }
+  .role-tag.usuario { background: #fff3e0; color: #a83210; }
+  .role-tag.admin { background: #fff8e1; color: #7a5000; }
+
+  .toast {
+    position: fixed; bottom: 30px; right: 30px; z-index: 999;
+    background: var(--bark); color: #fff;
+    padding: 14px 22px; border-radius: 12px;
+    font-size: 0.9rem; font-weight: 500;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    display: flex; align-items: center; gap: 10px;
+    transform: translateY(80px); opacity: 0;
+    transition: all 0.3s cubic-bezier(.34,1.56,.64,1);
+    max-width: 340px;
+  }
+  .toast.show { transform: none; opacity: 1; }
+  .toast.success { border-left: 4px solid var(--sage); }
+  .toast.error { border-left: 4px solid var(--terracotta); }
+  .toast.info { border-left: 4px solid var(--gold); }
+
+  .empty-state {
+    text-align: center; padding: 80px 20px; color: var(--text-light);
+  }
+  .empty-state .empty-icon { font-size: 4rem; margin-bottom: 16px; }
+  .empty-state h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--text-mid); margin-bottom:8px; }
+
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .stat-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px; text-align: center;
+    box-shadow: 0 2px 10px var(--shadow);
+  }
+  .stat-card .stat-val { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:900; color:var(--terracotta); }
+  .stat-card .stat-lbl { font-size:0.82rem; color:var(--text-light); margin-top:4px; }
+
+  .superadmin-banner {
+    background: linear-gradient(135deg, var(--bark) 0%, #2e1808 100%);
+    border: 2px solid var(--gold);
+    border-radius: 14px; padding: 18px 22px; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .superadmin-banner .crown { font-size: 2rem; }
+  .superadmin-banner h4 { color: var(--gold-light); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:3px; }
+  .superadmin-banner p { color: rgba(255,255,255,0.65); font-size:0.8rem; }
+
+  .pin-row { display: flex; gap: 10px; }
+  .pin-row input { letter-spacing: 6px; font-size: 1.2rem; font-weight: 700; text-align: center; }
+
+  .confirm-box {
+    background: #fff8e1; border: 2px solid var(--gold);
+    border-radius: 12px; padding: 16px 18px; margin-bottom: 20px;
+    font-size: 0.85rem; color: var(--bark);
+  }
+  .confirm-box strong { display: block; margin-bottom: 6px; font-size:0.9rem; }
+
+  .admin-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, var(--gold), #9a6500);
+    color: var(--bark); font-size: 0.72rem; font-weight: 800;
+    padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px;
+    text-transform: uppercase; margin-left: 8px;
+  }
+
+  .step-indicator {
+    display: flex; gap: 8px; margin-bottom: 24px; align-items: center;
+  }
+  .step-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700;
+    background: var(--cream); color: var(--text-light); border: 2px solid var(--border);
+    transition: all 0.3s;
+  }
+  .step-dot.active { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
+  .step-dot.done { background: var(--forest); color: #fff; border-color: var(--forest); }
+  .step-line { flex: 1; height: 2px; background: var(--border); border-radius: 2px; }
+  .step-line.done { background: var(--forest); }
+
+  /* Decorative Tlaxcala banner strip */
+  .tlax-strip {
+    background: var(--terracotta);
+    height: 5px;
+    background: repeating-linear-gradient(90deg, var(--terracotta) 0px, var(--terracotta) 20px, var(--gold) 20px, var(--gold) 25px, var(--bark) 25px, var(--bark) 45px, var(--gold) 45px, var(--gold) 50px);
+  }
+
+  @media(max-width:640px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .recipe-grid { grid-template-columns: 1fr; }
+    header { padding: 0 1rem; }
+    .logo { font-size: 1.2rem; }
+  }
+
+  /* ── CAPTCHA ──────────────────────────────────────────── */
+  .captcha-box {
+    display: flex; align-items: center; gap: 12px;
+    background: linear-gradient(135deg, var(--cream), #eeddc8);
+    border: 2px solid var(--border); border-radius: 12px;
+    padding: 14px 16px; margin-top: 4px;
+  }
+  .captcha-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700; color: var(--bark);
+    letter-spacing: 2px; flex: 1; user-select: none;
+  }
+  .captcha-input {
+    width: 70px !important; text-align: center;
+    font-size: 1.1rem; font-weight: 700;
+    padding: 10px 8px !important; border-radius: 8px !important;
+  }
+  .captcha-refresh {
+    background: none; border: none; cursor: pointer;
+    font-size: 1.2rem; color: var(--text-light);
+    padding: 4px; border-radius: 6px; transition: all 0.2s;
+    line-height: 1;
+  }
+  .captcha-refresh:hover { color: var(--terracotta); transform: rotate(180deg); }
+  .captcha-error { color: var(--terracotta); font-size: 0.8rem; margin-top: 4px; display: none; }
+
+  /* ── Recuperar contraseña ─────────────────────────────── */
+  .forgot-link {
+    display: inline-block; font-size: 0.82rem; color: var(--terracotta);
+    cursor: pointer; margin-top: 6px; text-decoration: underline;
+    background: none; border: none; padding: 0; font-family: 'DM Sans', sans-serif;
+  }
+  .forgot-link:hover { color: var(--terracotta-dark); }
+
+  .recovery-status-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+  }
+  .recovery-status-badge.pending { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+  .recovery-status-badge.resolved { background: #d1e7dd; color: #0f5132; border: 1px solid #198754; }
+
+  .recovery-card {
+    background: var(--card-bg); border-radius: 14px;
+    border: 2px solid #ffc107; padding: 16px 18px;
+    margin-bottom: 12px; box-shadow: 0 2px 8px rgba(133,100,4,0.1);
+  }
+  .recovery-card .rc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .recovery-card .rc-email { font-weight: 700; color: var(--bark); font-size: 0.95rem; }
+  .recovery-card .rc-date { font-size: 0.78rem; color: var(--text-light); }
+  .recovery-card .rc-msg { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 10px; }
+  .recovery-card .rc-actions { display: flex; gap: 8px; align-items: center; }
+  .btn-resolve {
+    padding: 7px 16px; border-radius: 6px; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 700;
+    background: var(--forest); color: #fff; transition: all 0.2s;
+  }
+  .btn-resolve:hover { background: #1a4010; }
+  .btn-dismiss {
+    padding: 7px 14px; border-radius: 6px; border: 1px solid var(--border);
+    background: none; font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 600; color: var(--text-mid); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-dismiss:hover { border-color: var(--terracotta); color: var(--terracotta); }
+  .recovery-new-pass {
+    width: 100%; padding: 8px 12px; border-radius: 8px; margin-top: 8px;
+    border: 2px solid var(--border); font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; outline: none; background: var(--warm-white);
+  }
+  .recovery-new-pass:focus { border-color: var(--forest); }
+</style>
+</head>
+<body>
+
+<div class="tlax-strip"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo" onclick="showSection('home')">
+    <span class="logo-icon">🫔</span>
+    Sabores de <span>Tlaxcala</span>
+  </div>
+  <nav id="mainNav">
+    <button class="nav-btn active" onclick="showSection('home')">Inicio</button>
+    <button class="nav-btn" onclick="showSection('recetas')">Platillos</button>
+    <button class="nav-btn" onclick="showSection('historia')">Historia</button>
+    <span id="authButtons">
+      <button class="nav-btn" onclick="openModal('loginModal')">Iniciar Sesión</button>
+      <button class="nav-btn cta" onclick="openModal('registerModal')">Registrarse</button>
+    </span>
+    <span id="userArea" style="display:none"></span>
+  </nav>
+</header>
+
+<div class="app">
+
+  <!-- HOME SECTION -->
+  <div id="homeSection">
+    <div class="hero">
+      <div class="hero-tag">🌽 Patrimonio Gastronómico de Tlaxcala</div>
+      <h1>El sabor ancestral<br><em>de Tlaxcala</em></h1>
+      <p>Recetas auténticas tlaxcaltecas preservadas por nuestra comunidad de cocineros y cocineras tradicionales</p>
+      <div class="hero-btns">
+        <button class="btn-hero primary" onclick="showSection('recetas')">Explorar Platillos</button>
+        <button class="btn-hero secondary" onclick="showSection('historia')">Historia Gastronómica</button>
+      </div>
+    </div>
+
+    <div style="max-width:1280px; margin:0 auto; padding:50px 2rem;">
+      <div class="stats-row" id="homeStats"></div>
+      <div class="section-header">
+        <h2>Platillos <span>Destacados</span></h2>
+        <button class="btn-sm view" onclick="showSection('recetas')">Ver todos →</button>
+      </div>
+      <div class="recipe-grid" id="featuredGrid"></div>
+    </div>
+  </div>
+
+  <!-- RECETAS SECTION -->
+  <div id="recetasSection" class="section">
+    <div class="section-header">
+      <h2>Platillos <span>Tlaxcaltecas</span></h2>
+      <span id="addRecetaBtn" style="display:none">
+        <button class="btn-primary" onclick="openModal('recipeFormModal')">+ Nuevo Platillo</button>
+      </span>
+    </div>
+    <div class="filters" id="categoryFilters"></div>
+    <div class="recipe-grid" id="recetasGrid"></div>
+  </div>
+
+  <!-- HISTORIA SECTION -->
+  <div id="historiaSection" class="section">
+    <div class="section-header">
+      <h2>Historia <span>Gastronómica Tlaxcalteca</span></h2>
+    </div>
+    <div id="historiaContent"></div>
+  </div>
+
+  <!-- ADMIN SECTION -->
+  <div id="adminSection" class="section" style="display:none">
+    <div class="section-header">
+      <h2>Panel de <span>Administración</span></h2>
+    </div>
+    <div class="stats-row" id="adminStats"></div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="adminTab('users')">👥 Usuarios</button>
+      <button class="admin-tab" onclick="adminTab('recipes')">📖 Platillos</button>
+      <button class="admin-tab" id="pendingTab" onclick="adminTab('pending')">⏳ Pendientes <span id="pendingBadgeCount" style="display:none;background:var(--terracotta);color:#fff;border-radius:30px;padding:1px 7px;font-size:0.72rem;margin-left:4px">0</span></button>
+      <button class="admin-tab" id="recoveryTab" onclick="adminTab('recovery')">🔐 Recuperaciones <span id="recoveryBadgeCount" style="display:none;background:var(--terracotta);color:#fff;border-radius:30px;padding:1px 7px;font-size:0.72rem;margin-left:4px">0</span></button>
+      <button class="admin-tab" onclick="openCreateAdmin()" style="margin-left:auto;color:var(--gold)">👑 + Crear Admin</button>
+    </div>
+    <div id="adminTabContent"></div>
+  </div>
+
+</div>
+
+<!-- ══════════ MODALS ══════════ -->
+
+<!-- LOGIN -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>🔑 Iniciar Sesión</h3>
+      <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field full"><label>Correo electrónico</label><input type="email" id="loginEmail" placeholder="tu@correo.com"></div>
+        <div class="field full">
+          <label>Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="••••••••">
+          <button class="forgot-link" type="button" onclick="closeModal('loginModal');openModal('forgotPassModal')">¿Olvidaste tu contraseña?</button>
+        </div>
+      </div>
+      <div style="margin-top:12px; font-size:0.82rem; color:var(--text-light); background:var(--cream); padding:12px 14px; border-radius:8px;">
+        <strong>Cuentas de prueba:</strong><br>
+        admin@tlaxcala.com / admin123 (Administrador)<br>
+        cocinera@tlaxcala.com / cocinera123 (Cocinera registrada)<br>
+        o visita como invitado sin cuenta
+      </div>
+      <div class="form-actions">
+        <button class="btn-cancel" onclick="closeModal('loginModal')">Cancelar</button>
+        <button class="btn-primary" onclick="doLogin()">Entrar →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>✨ Crear Cuenta</h3>
+      <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field"><label>Nombre</label><input id="regName" placeholder="Tu nombre"></div>
+        <div class="field"><label>Apellido</label><input id="regLast" placeholder="Tu apellido"></div>
+        <div class="field full"><label>Correo electrónico</label><input type="email" id="regEmail" placeholder="tu@correo.com"></div>
+        <div class="field full"><label>Contraseña</label><input type="password" id="regPass" placeholder="Mínimo 6 caracteres"></div>
+        <div class="field full"><label>Municipio de origen</label><input id="regSpec" placeholder="Ej: Tlaxcala, Huamantla, Apizaco..."></div>
+        <div class="field full">
+          <label>🤖 Verificación de seguridad</label>
+          <div class="captcha-box">
+            <span class="captcha-question" id="captchaQuestion">?</span>
+            <input class="captcha-input" type="number" id="captchaAnswer" placeholder="=">
+            <button class="captcha-refresh" type="button" onclick="generateCaptcha()" title="Nueva pregunta">🔄</button>
+          </div>
+          <span class="captcha-error" id="captchaError">❌ Respuesta incorrecta, intenta de nuevo</span>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-cancel" onclick="closeModal('registerModal')">Cancelar</button>
+        <button class="btn-primary" onclick="doRegister()">Crear cuenta</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORGOT PASSWORD -->
+<div class="modal-overlay" id="forgotPassModal">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-header">
+      <h3>🔐 Recuperar Contraseña</h3>
+      <button class="modal-close" onclick="closeModal('forgotPassModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="background:var(--cream);border-left:4px solid var(--gold);padding:14px 16px;border-radius:0 10px 10px 0;margin-bottom:20px;font-size:0.88rem;color:var(--bark);line-height:1.6">
+        <strong>¿Cómo funciona?</strong><br>
+        Ingresa tu correo registrado y un mensaje al administrador. El administrador revisará tu solicitud y restablecerá tu contraseña a la brevedad.
+      </div>
+      <div class="form-grid">
+        <div class="field full"><label>Correo electrónico registrado</label><input type="email" id="fpEmail" placeholder="tu@correo.com"></div>
+        <div class="field full"><label>Mensaje al administrador (opcional)</label><textarea id="fpMessage" placeholder="Ej: No puedo acceder a mi cuenta desde el 15 de mayo..." style="min-height:70px"></textarea></div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-cancel" onclick="closeModal('forgotPassModal')">Cancelar</button>
+        <button class="btn-primary" onclick="submitPasswordRecovery()">📨 Enviar solicitud</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RECIPE DETAIL -->
+<div class="modal-overlay" id="recipeDetailModal">
+  <div class="modal" style="max-width:720px">
+    <div class="modal-header">
+      <h3 id="detailModalTitle">Platillo</h3>
+      <button class="modal-close" onclick="closeModal('recipeDetailModal')">✕</button>
+    </div>
+    <div class="modal-body" id="detailModalBody"></div>
+  </div>
+</div>
+
+<!-- RECIPE FORM (add/edit) -->
+<div class="modal-overlay" id="recipeFormModal">
+  <div class="modal" style="max-width:700px">
+    <div class="modal-header">
+      <h3 id="recipeFormTitle">Nuevo Platillo</h3>
+      <button class="modal-close" onclick="closeModal('recipeFormModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="pendingNoticeForm" class="pending-notice" style="display:none">
+        <span style="font-size:1.2rem">⏳</span>
+        <div>
+          <strong>Revisión requerida</strong>
+          Tu receta será enviada al administrador para su aprobación antes de publicarse en el sitio.
+        </div>
+      </div>
+      <input type="hidden" id="editRecipeId">
+      <div class="form-grid">
+        <div class="field full"><label>Nombre del platillo</label><input id="rf_name" placeholder="Ej: Tlayudas de frijoles negros"></div>
+        <div class="field"><label>Categoría</label>
+          <select id="rf_category">
+            <option value="Antojitos">Antojitos</option>
+            <option value="Sopas y Caldos">Sopas y Caldos</option>
+            <option value="Platos Fuertes">Plato Fuerte</option>
+            <option value="Moles y Salsas">Moles y Salsas</option>
+            <option value="Postres y Dulces">Postres y Dulces</option>
+            <option value="Bebidas Tradicionales">Bebidas Tradicionales</option>
+            <option value="Tamales">Tamales</option>
+          </select>
+        </div>
+        <div class="field"><label>Municipio / Región</label><input id="rf_origin" placeholder="Ej: Huamantla, Apizaco..."></div>
+        <div class="field"><label>Tiempo (min)</label><input type="number" id="rf_time" placeholder="60" min="1"></div>
+        <div class="field"><label>Porciones</label><input type="number" id="rf_portions" placeholder="6" min="1"></div>
+        <div class="field"><label>Dificultad</label>
+          <select id="rf_difficulty">
+            <option>Fácil</option><option>Media</option><option>Difícil</option>
+          </select>
+        </div>
+        <div class="field"><label>Emoji / Ícono</label><input id="rf_emoji" placeholder="🫔 (emoji)"></div>
+        <div class="field"><label>Color de fondo</label><input type="color" id="rf_color" value="#f5ede0"></div>
+        <div class="field full"><label>Descripción corta</label><textarea id="rf_desc" rows="2" placeholder="Descripción breve y apetitosa del platillo..."></textarea></div>
+        <div class="field full"><label>Ingredientes (uno por línea)</label><textarea id="rf_ingredients" rows="5" placeholder="500g de masa de maíz azul&#10;chile chipotle al gusto&#10;epazote fresco..."></textarea></div>
+        <div class="field full"><label>Pasos de preparación (uno por línea)</label><textarea id="rf_steps" rows="6" placeholder="Remojar los chiles en agua caliente&#10;Moler los ingredientes en metate&#10;..."></textarea></div>
+
+        <!-- HISTORIA -->
+        <div class="field full" style="margin-top:8px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <span style="font-size:1.1rem">📜</span>
+            <span class="form-section-label" style="margin-bottom:0">Historia del platillo</span>
+          </div>
+          <textarea id="rf_history" rows="4" placeholder="Cuenta el origen e historia de este platillo. ¿Desde cuándo se prepara? ¿Tiene conexión con alguna celebración, pueblo o familia?..."></textarea>
+        </div>
+
+        <!-- DATOS CURIOSOS -->
+        <div class="field full" style="margin-top:4px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="font-size:1.1rem">💡</span>
+              <span class="form-section-label" style="margin-bottom:0">Datos curiosos</span>
+            </div>
+            <button type="button" class="btn-icon add" onclick="addCuriosidadField()" title="Agregar dato">＋</button>
+          </div>
+          <div class="curiosidades-input-list" id="curiosidadesInputList">
+            <div class="curiosidad-input-row">
+              <input type="text" placeholder="Ej: Este platillo solo se prepara en Semana Santa...">
+              <button type="button" class="btn-icon remove" onclick="removeCuriosidadRow(this)">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- IMÁGENES -->
+        <div class="field full" style="margin-top:4px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="font-size:1.1rem">📷</span>
+              <span class="form-section-label" style="margin-bottom:0">Imágenes (URLs)</span>
+            </div>
+            <button type="button" class="btn-icon add" onclick="addImageField()" title="Agregar imagen">＋</button>
+          </div>
+          <div id="imageInputList" style="display:flex;flex-direction:column;gap:8px">
+            <div class="curiosidad-input-row">
+              <input type="url" placeholder="https://ejemplo.com/imagen.jpg">
+              <button type="button" class="btn-icon remove" onclick="removeImageRow(this)">✕</button>
+            </div>
+          </div>
+          <div class="img-preview-list" id="imgPreviewList"></div>
+          <span style="font-size:0.78rem;color:var(--text-light);margin-top:6px;display:block">Pega URLs directas de imágenes (.jpg, .png, .webp). Puedes agregar varias.</span>
+        </div>
+
+      </div>
+      <div class="form-actions">
+        <button class="btn-cancel" onclick="closeModal('recipeFormModal')">Cancelar</button>
+        <button class="btn-primary" onclick="saveRecipe()">💾 Guardar Platillo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE ADMIN -->
+<div class="modal-overlay" id="createAdminModal">
+  <div class="modal" style="max-width:560px">
+    <div class="modal-header">
+      <h3>👑 Crear Administrador</h3>
+      <button class="modal-close" onclick="closeModal('createAdminModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="step-indicator">
+        <div class="step-dot active" id="sd1">1</div>
+        <div class="step-line" id="sl1"></div>
+        <div class="step-dot" id="sd2">2</div>
+        <div class="step-line" id="sl2"></div>
+        <div class="step-dot" id="sd3">3</div>
+      </div>
+
+      <div id="adminStep1">
+        <div class="superadmin-banner">
+          <div class="crown">👑</div>
+          <div>
+            <h4>Verificación de Cuenta Principal</h4>
+            <p>Solo la cuenta principal puede crear nuevos administradores. Ingresa tu PIN maestro.</p>
+          </div>
+        </div>
+        <div class="field">
+          <label>PIN Maestro (4 dígitos)</label>
+          <div class="pin-row">
+            <input type="password" id="masterPin" maxlength="4" placeholder="••••" inputmode="numeric">
+          </div>
+          <span style="font-size:0.78rem;color:var(--text-light);margin-top:4px">PIN por defecto: <strong>1234</strong></span>
+        </div>
+        <div class="form-actions">
+          <button class="btn-cancel" onclick="closeModal('createAdminModal')">Cancelar</button>
+          <button class="btn-primary" onclick="verifyMasterPin()">Verificar PIN →</button>
+        </div>
+      </div>
+
+      <div id="adminStep2" style="display:none">
+        <div class="confirm-box">
+          <strong>✅ Identidad verificada</strong>
+          Estás creando una cuenta con privilegios de administrador. Esta acción quedará registrada.
+        </div>
+        <div class="form-grid">
+          <div class="field"><label>Nombre</label><input id="ca_name" placeholder="Nombre"></div>
+          <div class="field"><label>Apellido</label><input id="ca_last" placeholder="Apellido"></div>
+          <div class="field full"><label>Correo electrónico</label><input type="email" id="ca_email" placeholder="admin@ejemplo.com"></div>
+          <div class="field full"><label>Contraseña temporal</label><input type="password" id="ca_pass" placeholder="Mínimo 6 caracteres"></div>
+          <div class="field full"><label>Confirmar contraseña</label><input type="password" id="ca_pass2" placeholder="Repite la contraseña"></div>
+          <div class="field full"><label>Área de gestión</label><input id="ca_area" placeholder="Ej: Recetas del altiplano, Tamales de la región..."></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-cancel" onclick="adminStepBack()">← Atrás</button>
+          <button class="btn-primary" onclick="validateAdminForm()">Siguiente →</button>
+        </div>
+      </div>
+
+      <div id="adminStep3" style="display:none">
+        <div class="superadmin-banner" style="margin-bottom:20px">
+          <div class="crown">⚠️</div>
+          <div>
+            <h4>Confirma la creación</h4>
+            <p>Estás a punto de crear un administrador con acceso total al sistema.</p>
+          </div>
+        </div>
+        <div id="adminSummary" style="background:var(--cream);border-radius:12px;padding:18px;margin-bottom:20px;font-size:0.88rem;line-height:1.9"></div>
+        <div class="form-actions">
+          <button class="btn-cancel" onclick="adminStepBack2()">← Atrás</button>
+          <button class="btn-primary" style="background:var(--bark)" onclick="createAdmin()">👑 Crear Administrador</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <span id="toastIcon">✓</span>
+  <span id="toastMsg">Mensaje</span>
+</div>
+
+<script>
+const DB_KEY = 'tlaxcala_db_v1';
+
+function initDB() {
+  // Migrate: clear old DB if it doesn't have the new fields (history/curiosidades/images)
+  const existing = localStorage.getItem(DB_KEY);
+  if (existing) {
+    try {
+      const parsed = JSON.parse(existing);
+      const hasNewFields = parsed.recipes && parsed.recipes.some(r => 'history' in r || 'curiosidades' in r || 'images' in r);
+      if (hasNewFields) {
+        // Add pendingRecipes array if missing (new migration)
+        if (!parsed.pendingRecipes) { parsed.pendingRecipes = []; saveDB(parsed); }
+        return;
+      }
+    } catch(e) {}
+    localStorage.removeItem(DB_KEY); // reset to get new seed data
+  }
+  const db = {
+    users: [
+      { id:'u1', name:'Administrador', lastName:'Principal', email:'admin@tlaxcala.com', password:'admin123', role:'admin', specialty:'Gastronomía Tlaxcalteca', createdAt:'2024-01-01', isMainAdmin:true },
+      { id:'u2', name:'Doña Esperanza', lastName:'Sánchez', email:'cocinera@tlaxcala.com', password:'cocinera123', role:'usuario', specialty:'Huamantla', createdAt:'2024-02-15' },
+      { id:'u3', name:'Don Aurelio', lastName:'Flores', email:'aurelio@tlaxcala.com', password:'aurelio123', role:'usuario', specialty:'Tlaxcala Centro', createdAt:'2024-03-10' }
+    ],
+    recipes: [
+      {
+        id:'r1', name:'Mole Prieto Tlaxcalteca', category:'Moles y Salsas', origin:'Tlaxcala Centro',
+        time:180, portions:10, difficulty:'Difícil', emoji:'🫕', color:'#3a1a08',
+        colorText:'#fff',
+        desc:'El mole más representativo de Tlaxcala, de color oscuro e intenso sabor a chile mulato y chocolate de metate.',
+        ingredients:['10 chiles mulatos secos','5 chiles anchos','3 chiles pasilla','100g chocolate de metate tlaxcalteca','50g ajonjolí tostado','1 cebolla asada','4 dientes de ajo asados','1 tortilla quemada','Canela en raja, clavo, pimienta negra','1kg piezas de guajolote o pollo criollo','Manteca de cerdo','Sal al gusto'],
+        steps:['Desvenar y tostar ligeramente los chiles en comal','Remojar los chiles en agua caliente 30 minutos','Tostar el ajonjolí, canela, clavo y pimienta','Quemar la tortilla hasta carbonizar','Moler todos los ingredientes en molino o licuadora con caldo','Freír la pasta de chile en manteca bien caliente, mover constantemente','Añadir el caldo de guajolote poco a poco','Agregar el chocolate y sazonar con sal','Cocer a fuego lento 1 hora moviendo para que no se pegue','Añadir las piezas de carne ya cocidas y servir'],
+        authorId:'u2', authorName:'Doña Esperanza Sánchez', createdAt:'2024-03-01', featured:true,
+        history:'Las tlayudas de frijol negro son el platillo más representativo de Huamantla. Se elaboran con maíz criollo azul cultivado a más de 2,400 msnm. Su origen se remonta a la época prehispánica, cuando los señoríos tlaxcaltecas usaban el maíz negro en ceremonias dedicadas a Tláloc. Las cocineras huamantlecas las preparan por generaciones en los mercados de la Feria de la Huamantlada cada agosto.',
+        curiosidades:['El maíz negro solo crece en el altiplano tlaxcalteca a más de 2,400 metros de altitud.','En la Feria de Huamantla se venden más de 5,000 tlayudas en un solo día.','El frijol ayocote negro es una variedad prehispánica que no se cultiva fuera de Tlaxcala y Puebla.'],
+        images:['https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Tlayuda.jpg/640px-Tlayuda.jpg']
+      },
+      {
+        id:'r2', name:'Tlayudas de Frijol Ayocote', category:'Antojitos', origin:'San Pablo del Monte',
+        time:40, portions:6, difficulty:'Fácil', emoji:'🫓', color:'#f5ede0',
+        desc:'Tortillas grandes de maíz azul criollo tostadas al comal, cubiertas con pasta de frijol ayocote negro.',
+        ingredients:['500g masa de maíz azul criollo','300g frijol ayocote negro cocido','Epazote fresco','1 cebolla blanca','Sal de mar','Manteca de cerdo o aceite','Queso fresco de rancho','Chile serrano al gusto'],
+        steps:['Preparar la masa con sal y amasar hasta obtener consistencia lisa','Hacer tortillas gruesas de 20 cm de diámetro','Cocer las tortillas en comal a fuego medio hasta dorar ligeramente','Moler los frijoles cocidos con epazote y sal','Freír la pasta de frijol en manteca con cebolla y chile','Untar generosamente los frijoles sobre las tlayudas','Espolvorear queso fresco y servir calientes'],
+        authorId:'u2', authorName:'Doña Esperanza Sánchez', createdAt:'2024-03-05', featured:true,
+        history:'Las tlayudas de frijol ayocote son uno de los antojitos más antiguos de Tlaxcala, consumidos desde la época prehispánica. El frijol ayocote negro fue uno de los primeros cultivos domesticados en Mesoamérica hace más de 4,000 años. En San Pablo del Monte y la región del volcán La Malinche, las familias conservan semillas de maíz azul criollo de manera tradicional, sin cruces con variedades modernas.',
+        curiosidades:['El maíz azul criollo utilizado tiene entre 3,000 y 4,500 años de historia en la región.','El frijol ayocote negro es más grande y carnoso que el frijol negro común, con un sabor más complejo.','Estas tlayudas se sirven tradicionalmente en hoja de maíz seca en los mercados de madrugada.'],
+        images:['https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Tlayuda.jpg/640px-Tlayuda.jpg']
+      },
+      {
+        id:'r3', name:'Tamales de Rajas con Queso', category:'Tamales', origin:'Huamantla',
+        time:120, portions:20, difficulty:'Media', emoji:'🌽', color:'#fff8e1',
+        desc:'Tamales tlaxcaltecas rellenos de rajas de chile poblano con queso fresco, envueltos en hoja de maíz.',
+        ingredients:['1kg masa para tamales preparada','200g manteca de cerdo batida','Caldo de pollo tibio c/n','Sal y royal al gusto','300g chile poblano en rajas','200g queso fresco desmoronado','Hojas de maíz remojadas','1 cebolla blanca en tiritas'],
+        steps:['Batir la manteca hasta que esponje y cambie de color','Incorporar la masa poco a poco alternando con caldo tibio','Sazonar con sal, añadir royal y batir hasta que una bolita de masa flote en agua','Remojar las hojas de maíz en agua caliente 30 min','Asar y pelar los chiles, cortar en rajas','Extender masa en hoja, colocar rajas y queso al centro','Doblar y cerrar las hojas formando el tamal','Cocer en vaporera 1 hora a fuego medio'],
+        authorId:'u3', authorName:'Don Aurelio Flores', createdAt:'2024-03-12', featured:true
+      },
+      {
+        id:'r4', name:'Sopa de Hongos de Monte', category:'Sopas y Caldos', origin:'Nanacamilpa',
+        time:35, portions:6, difficulty:'Fácil', emoji:'🍄', color:'#e8f5e9',
+        desc:'Caldo aromático con hongos silvestres de los bosques de Nanacamilpa: clavitos, panzas y enchilados.',
+        ingredients:['500g hongos silvestres mixtos (clavitos, panzas, enchilados)','2 jitomates asados','3 dientes de ajo asados','1/4 cebolla asada','Chile chipotle seco al gusto','Epazote fresco','Hierbas de monte','Sal y pimienta','1.5L caldo de pollo o agua'],
+        steps:['Limpiar los hongos con trapo húmedo, no lavar','Cortar los hongos en trozos medianos','Asar jitomate, ajo y cebolla en comal seco','Licuar los jitomates asados con el chile chipotle','Acitronar ajo y cebolla picados en olla con aceite','Añadir la salsa de jitomate y freír 5 minutos','Incorporar los hongos y saltear','Agregar el caldo, epazote y sazonar','Hervir 15 minutos a fuego medio'],
+        authorId:'u1', authorName:'Administrador Principal', createdAt:'2024-03-18', featured:false
+      },
+      {
+        id:'r5', name:'Pulque Curado de Tuna', category:'Bebidas Tradicionales', origin:'Calpulalpan',
+        time:20, portions:8, difficulty:'Fácil', emoji:'🌵', color:'#fce4ec',
+        desc:'Bebida ancestral tlaxcalteca: pulque blanco fresco curado con tuna roja de nopal, ligeramente dulce.',
+        ingredients:['1L pulque blanco fresco','6 tunas rojas peladas','2 cdas azúcar (o al gusto)','Pizca de sal','Jugo de 1 limón (opcional)'],
+        steps:['Licuar las tunas con un poco de pulque','Colar para eliminar semillas','Mezclar con el resto del pulque','Añadir azúcar y sal al gusto','Servir muy frío con hielos','Decorar con tuna en rodajas'],
+        authorId:'u2', authorName:'Doña Esperanza Sánchez', createdAt:'2024-03-20', featured:false
+      },
+      {
+        id:'r6', name:'Memelas de Maíz Azul', category:'Antojitos', origin:'Apizaco',
+        time:30, portions:8, difficulty:'Fácil', emoji:'🫔', color:'#ede7f6',
+        desc:'Antojito de origen prehispánico: óvalo de masa de maíz azul con frijoles negros untados y queso.',
+        ingredients:['500g masa de maíz azul','250g frijoles negros cocidos y molidos','Epazote','100g queso Oaxaca o fresco','Salsa roja de chile de árbol','Sal al gusto'],
+        steps:['Amasar la masa con sal hasta tener consistencia manejable','Formar óvalos gruesos de unos 15 cm','Cocer en comal a fuego medio, 5 min por lado','Untar los frijoles molidos con epazote encima','Agregar queso desmoronado','Servir con salsa de chile de árbol'],
+        authorId:'u3', authorName:'Don Aurelio Flores', createdAt:'2024-03-25', featured:true
+      },
+      {
+        id:'r7', name:'Caldo de Res con Xoconostle', category:'Sopas y Caldos', origin:'Hueyotlipan',
+        time:90, portions:8, difficulty:'Media', emoji:'🍲', color:'#fff3e0',
+        desc:'Caldo reconfortante de res con verduras de temporada y el toque ácido del xoconostle tlaxcalteca.',
+        ingredients:['1kg chambarete o costilla de res','3 xoconostles pelados y desflemorados','2 mazorcas de elote en trozo','2 chayotes en cuartos','3 ejotes','2 calabacitas','1 rama de epazote','Chile serrano al gusto','Sal gruesa'],
+        steps:['Poner la carne con agua fría y sal a hervir, desespumar','Cocer a fuego medio 1 hora hasta suavizar','Añadir el xoconostle y dejar cocer 15 minutos','Incorporar el elote y chayote','Agregar calabacita y ejotes al final','Sazonar con epazote y chile','Servir con tortillas de comal y limón'],
+        authorId:'u2', authorName:'Doña Esperanza Sánchez', createdAt:'2024-04-01', featured:false
+      },
+      {
+        id:'r8', name:'Dulce de Capulín', category:'Postres y Dulces', origin:'La Malinche',
+        time:50, portions:12, difficulty:'Fácil', emoji:'🍒', color:'#fce4ec',
+        desc:'Dulce artesanal tlaxcalteca elaborado con capulín silvestre del volcán La Malinche en temporada.',
+        ingredients:['1kg capulines maduros bien lavados','600g azúcar','Canela en raja','Jugo de 1 limón','1 taza de agua'],
+        steps:['Lavar y deshuesar los capulines','Poner en olla con agua, azúcar y canela','Hervir a fuego medio moviendo ocasionalmente','Añadir jugo de limón al comenzar a espesar','Cocer hasta obtener consistencia de mermelada','Envasar en caliente en frascos esterilizados'],
+        authorId:'u3', authorName:'Don Aurelio Flores', createdAt:'2024-04-05', featured:false
+      }
+    ],
+    historia: [
+      {
+        id:'h1', title:'La Cocina Prehispánica Tlaxcalteca',
+        period:'Siglo XII a.C. – 1521 d.C.',
+        content:'La gastronomía tlaxcalteca hunde sus raíces en las culturas olmeco-xicalancas y más tarde en los señoríos tlaxcaltecas independientes. El maíz en sus variedades azul, negro, rojo y blanco fue la base de la alimentación: tortillas, tamales, atoles y pozoles dominaban la dieta cotidiana. El maguey era planta sagrada: daba pulque, agua miel, fibras y alimento. Los hongos silvestres, el xoconostle, el epazote y los quelites completaban una dieta rica y equilibrada.',
+        highlight:'Tlaxcala fue el único estado de México que nunca fue conquistado por los aztecas, lo que preservó una gastronomía propia única, sin influencias mexicas directas.'
+      },
+      {
+        id:'h2', title:'El Encuentro con los Españoles y la Cocina Nueva',
+        period:'1521 – 1600',
+        content:'La alianza de Tlaxcala con Hernán Cortés cambió para siempre la historia y la gastronomía de la región. Los tlaxcaltecas adoptaron el cerdo, la res, el trigo y nuevas especias, fusionándolos con técnicas culinarias ancestrales. Nacieron platillos como el mole prieto tlaxcalteca, que incorporó el chocolate y especias europeas a la base de chiles secos prehispánicos. Las cocineras tlaxcaltecas demostraron una extraordinaria creatividad para fusionar dos mundos.',
+        highlight:'El mole tlaxcalteca es anterior al mole poblano: las cocineras del convento de Santa Catalina de Siena en Tlaxcala ya preparaban versiones de este guiso antes que en Puebla.'
+      },
+      {
+        id:'h3', title:'Los Hongos y el Bosque de La Malinche',
+        period:'Tradición continua',
+        content:'El volcán La Malinche (Matlalcueitl) y los bosques de Nanacamilpa han provisto por siglos de hongos silvestres únicos a la cocina tlaxcalteca. Los clavitos, panzas, enchilados, tejamaniles y otros hongos de temporada son ingredientes protagonistas en caldos, tamales y guisos. La temporada de lluvias (julio-septiembre) convierte a Tlaxcala en un destino gastronómico privilegiado. El conocimiento para identificar y cocinar estas variedades se transmite de generación en generación.',
+        highlight:'En Nanacamilpa existe una de las colonias de luciérnagas más grandes de América, y la temporada coincide con la de hongos: el bosque tlaxcalteca celebra dos festivales naturales al mismo tiempo.'
+      },
+      {
+        id:'h4', title:'El Maguey: Árbol de las Maravillas',
+        period:'Tradición continua',
+        content:'Tlaxcala es tierra de maguey. El pulque, bebida fermentada del aguamiel, fue bebida ritual y cotidiana antes de la Conquista. En Calpulalpan, Tlaxco y el altiplano tlaxcalteca existen aún tlachiqueros que practican el arte de raspar el maguey para extraer el aguamiel. Los pulques curados de frutas regionales (tuna, membrillo, xoconostle) son parte viva del patrimonio. El gusano de maguey, la salsa de gusano y el mezcal artesanal completan el universo gastronómico del maguey.',
+        highlight:'Un maguey puede vivir entre 8 y 25 años antes de florecer. El tlachiquero lo cuida y lo raspa diariamente durante meses para extraer hasta 1,000 litros de aguamiel en su ciclo productivo.'
+      },
+      {
+        id:'h5', title:'La Feria de Huamantla y la Tradición Culinaria',
+        period:'Agosto, cada año',
+        content:'Cada agosto, la Ciudad de Huamantla celebra la Feria de la Huamantlada: famosa por su tapete de flores y el encierro de toros. Pero la cocina es protagonista igual: los mercados se llenan de mole prieto, tamales negros, caldo de habas, carnes enchiladas y atole de guayaba. La gastronomía de feria tlaxcalteca concentra lo mejor de los siete municipios de la región, con cocineras que guardan recetas de hace más de cien años. Es el encuentro más importante de la gastronomía regional del estado.',
+        highlight:'Las tlayudas de Huamantla, elaboradas con maíz criollo del altiplano y frijol ayocote negro, han sido reconocidas como Patrimonio Gastronómico de Tlaxcala desde 2019.'
+      }
+    ],
+    masterPin: '1234',
+    adminLog: [],
+    pendingRecipes: []
+  };
+  localStorage.setItem(DB_KEY, JSON.stringify(db));
+}
+
+function getDB() { return JSON.parse(localStorage.getItem(DB_KEY)); }
+function saveDB(db) { localStorage.setItem(DB_KEY, JSON.stringify(db)); }
+
+let currentUser = null;
+let activeSection = 'home';
+let activeCategory = 'all';
+let adminActiveTab = 'users';
+
+function showSection(name) {
+  ['home','recetas','historia','admin'].forEach(s => {
+    const el = document.getElementById(s+'Section');
+    if(el) el.style.display = 'none';
+    if(el) el.classList.remove('visible');
+  });
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+
+  const sec = document.getElementById(name+'Section');
+  if(sec) { sec.style.display = 'block'; sec.classList.add('visible'); }
+  activeSection = name;
+
+  if(name==='home') renderHome();
+  if(name==='recetas') renderRecetas();
+  if(name==='historia') renderHistoria();
+  if(name==='admin') renderAdmin();
+
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    const t = b.textContent.toLowerCase();
+    if(name==='home'&&t.includes('inicio')) b.classList.add('active');
+    if(name==='recetas'&&t.includes('platillo')) b.classList.add('active');
+    if(name==='historia'&&t.includes('historia')) b.classList.add('active');
+    if(name==='admin'&&t.includes('admin')) b.classList.add('active');
+  });
+}
+
+function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPassword').value;
+  const db = getDB();
+  const user = db.users.find(u => u.email===email && u.password===pass);
+  if(!user) { showToast('❌ Credenciales incorrectas','error'); return; }
+  currentUser = user;
+  closeModal('loginModal');
+  updateHeader();
+  showToast(`✅ Bienvenido, ${user.name}!`, 'success');
+  if(user.role==='admin') showSection('admin');
+}
+
+function doRegister() {
+  const name = document.getElementById('regName').value.trim();
+  const last = document.getElementById('regLast').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass = document.getElementById('regPass').value;
+  const spec = document.getElementById('regSpec').value.trim();
+  if(!name||!email||!pass) { showToast('⚠️ Completa todos los campos','error'); return; }
+
+  // CAPTCHA validation
+  const captchaInput = document.getElementById('captchaAnswer');
+  const captchaErr = document.getElementById('captchaError');
+  const userAnswer = parseInt(captchaInput.value, 10);
+  if(isNaN(userAnswer) || userAnswer !== _captchaAnswer) {
+    captchaInput.style.borderColor = 'var(--terracotta)';
+    captchaErr.style.display = 'block';
+    generateCaptcha();
+    showToast('⚠️ Responde la verificación de seguridad correctamente','error');
+    return;
+  }
+  captchaErr.style.display = 'none';
+
+  const db = getDB();
+  if(db.users.find(u=>u.email===email)) { showToast('⚠️ Correo ya registrado','error'); return; }
+  const newUser = { id:'u'+Date.now(), name, lastName:last, email, password:pass, role:'usuario', specialty:spec||'Tlaxcala', createdAt:new Date().toISOString().slice(0,10) };
+  db.users.push(newUser);
+  saveDB(db);
+  currentUser = newUser;
+  closeModal('registerModal');
+  updateHeader();
+  showToast(`🎉 Cuenta creada. ¡Bienvenido, ${name}!`, 'success');
+}
+
+function doLogout() {
+  currentUser = null;
+  updateHeader();
+  showSection('home');
+  showToast('👋 Hasta pronto', 'info');
+}
+
+function updateHeader() {
+  const authBtn = document.getElementById('authButtons');
+  const userArea = document.getElementById('userArea');
+  const addBtn = document.getElementById('addRecetaBtn');
+
+  if(currentUser) {
+    authBtn.style.display = 'none';
+    userArea.style.display = 'flex';
+    const role = currentUser.role;
+    const initial = currentUser.name[0].toUpperCase();
+    userArea.innerHTML = `
+      <div class="user-chip">
+        <div class="avatar ${role}">${initial}</div>
+        <span>${currentUser.name}</span>
+        <span style="opacity:0.6">·</span>
+        <span style="opacity:0.7; font-size:0.75rem; text-transform:uppercase">${role}</span>
+      </div>
+      ${role==='admin'?'<button class="nav-btn" onclick="showSection(\'admin\')">⚙️ Admin</button>':''}
+      <button class="nav-btn" onclick="doLogout()">Salir</button>
+    `;
+    if(addBtn) addBtn.style.display = (role==='usuario'||role==='admin') ? 'inline' : 'none';
+  } else {
+    authBtn.style.display = 'flex';
+    userArea.style.display = 'none';
+    if(addBtn) addBtn.style.display = 'none';
+  }
+}
+
+function renderHome() {
+  const db = getDB();
+  const statsEl = document.getElementById('homeStats');
+  const municipios = [...new Set(db.recipes.map(r=>r.origin))].length;
+  statsEl.innerHTML = `
+    <div class="stat-card"><div class="stat-val">${db.recipes.length}</div><div class="stat-lbl">🫔 Platillos</div></div>
+    <div class="stat-card"><div class="stat-val">${db.users.filter(u=>u.role!=='admin').length}</div><div class="stat-lbl">👩‍🍳 Cocineras/os</div></div>
+    <div class="stat-card"><div class="stat-val">${municipios}</div><div class="stat-lbl">🏡 Municipios</div></div>
+    <div class="stat-card"><div class="stat-val">${db.historia.length}</div><div class="stat-lbl">📚 Historias</div></div>
+  `;
+  const featured = db.recipes.filter(r=>r.featured).slice(0,3);
+  document.getElementById('featuredGrid').innerHTML = featured.map(r=>recipeCardHTML(r,'home')).join('');
+}
+
+function renderRecetas() {
+  const db = getDB();
+  const addBtn = document.getElementById('addRecetaBtn');
+  if(addBtn) addBtn.style.display = (currentUser&&(currentUser.role==='usuario'||currentUser.role==='admin')) ? 'inline' : 'none';
+
+  const cats = ['all', ...new Set(db.recipes.map(r=>r.category))];
+  document.getElementById('categoryFilters').innerHTML = cats.map(c=>`
+    <button class="filter-btn ${activeCategory===c?'active':''}" onclick="filterCategory('${c}')">
+      ${c==='all'?'🫔 Todos':c}
+    </button>`).join('');
+
+  const filtered = activeCategory==='all' ? db.recipes : db.recipes.filter(r=>r.category===activeCategory);
+  const grid = document.getElementById('recetasGrid');
+  if(!filtered.length) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">🫕</div><h3>No hay platillos aquí aún</h3></div>`;
+  } else {
+    grid.innerHTML = filtered.map(r=>recipeCardHTML(r,'recetas')).join('');
+  }
+}
+
+function filterCategory(cat) {
+  activeCategory = cat;
+  renderRecetas();
+}
+
+function recipeCardHTML(r, ctx) {
+  const canEdit = currentUser && (currentUser.id===r.authorId || currentUser.role==='admin');
+  const canDelete = currentUser && currentUser.role==='admin';
+  const thumbStyle = r.id==='r1'
+    ? 'background:linear-gradient(135deg,#3a1a08,#6e2e10); color:#fff'
+    : `background:${r.color||'#f5ede0'}`;
+  return `
+    <div class="recipe-card">
+      <div class="recipe-thumb" style="${thumbStyle}">
+        <span style="filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))">${r.emoji||'🫔'}</span>
+        <div class="recipe-badge">${r.difficulty||'Media'}</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-title">${r.name}</div>
+        <div class="recipe-meta">
+          <span>⏱ ${r.time} min</span>
+          <span>🍴 ${r.portions} porciones</span>
+          <span>📍 ${r.origin}</span>
+        </div>
+        <div class="recipe-desc">${r.desc}</div>
+        <div class="recipe-author">
+          <span>👩‍🍳 ${r.authorName}</span>
+          <div class="recipe-actions">
+            <button class="btn-sm view" onclick="viewRecipe('${r.id}')">Ver receta</button>
+            ${canEdit?`<button class="btn-sm edit" onclick="editRecipe('${r.id}')">Editar</button>`:''}
+            ${canDelete?`<button class="btn-sm delete" onclick="deleteRecipe('${r.id}')">🗑</button>`:''}
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function viewRecipe(id) {
+  const db = getDB();
+  const r = db.recipes.find(x=>x.id===id);
+  if(!r) return;
+  document.getElementById('detailModalTitle').textContent = r.name;
+  const thumbStyle = r.id==='r1'
+    ? 'background:linear-gradient(135deg,#3a1a08,#6e2e10)'
+    : `background:linear-gradient(135deg,${r.color||'#f5ede0'},#eeddc8)`;
+
+  const hasImages = r.images && r.images.length > 0;
+  const hasHistory = r.history && r.history.trim();
+  const hasCuriosidades = r.curiosidades && r.curiosidades.length > 0;
+  const hasExtra = hasImages || hasHistory || hasCuriosidades;
+
+  const tabsHTML = hasExtra ? `
+    <div class="detail-tabs">
+      <button class="detail-tab active" onclick="switchDetailTab('receta',this)">🫔 Receta</button>
+      ${hasHistory ? `<button class="detail-tab" onclick="switchDetailTab('historia',this)">📜 Historia</button>` : ''}
+      ${hasCuriosidades ? `<button class="detail-tab" onclick="switchDetailTab('curiosidades',this)">💡 Datos curiosos</button>` : ''}
+      ${hasImages ? `<button class="detail-tab" onclick="switchDetailTab('fotos',this)">📷 Fotos (${r.images.length})</button>` : ''}
+    </div>` : '';
+
+  const fotosHTML = hasImages ? `
+    <div class="recipe-img-gallery">
+      ${r.images.map(url=>`<img src="${url}" alt="${r.name}" onerror="this.style.display='none'">`).join('')}
+    </div>` : '';
+
+  const historyHTML = hasHistory ? `
+    <div class="detail-tab-panel" id="dtab-historia">
+      <div class="recipe-history-box">
+        <div class="rh-header"><span style="font-size:1.4rem">📜</span><h4>Historia del platillo</h4></div>
+        <p>${r.history.split(String.fromCharCode(10)).join('<br>')}</p>
+      </div>
+    </div>` : '';
+
+  const curiosidadesHTML = hasCuriosidades ? `
+    <div class="detail-tab-panel" id="dtab-curiosidades">
+      <div class="detail-h" style="margin-bottom:14px">💡 Datos Curiosos</div>
+      <div class="curiosidades-list">
+        ${r.curiosidades.map(c=>`<div class="curiosidad-item"><span class="ci-icon">🌟</span><span>${c}</span></div>`).join('')}
+      </div>
+    </div>` : '';
+
+  const fotosTabHTML = hasImages ? `
+    <div class="detail-tab-panel" id="dtab-fotos">
+      <div class="detail-h" style="margin-bottom:14px">📷 Galería de Fotos</div>
+      <div class="recipe-img-gallery" style="flex-wrap:wrap">
+        ${r.images.map(url=>`<img src="${url}" alt="${r.name}" style="height:220px;min-width:280px" onerror="this.style.display='none'">`).join('')}
+      </div>
+    </div>` : '';
+
+  document.getElementById('detailModalBody').innerHTML = `
+    ${hasImages ? `<div class="recipe-img-gallery" style="margin-bottom:16px">${r.images.map(url=>`<img src="${url}" alt="${r.name}" onerror="this.style.display='none'">`).join('')}</div>` : `<div class="detail-hero" style="${thumbStyle}">${r.emoji||'🫔'}</div>`}
+    <div class="detail-title">${r.name}</div>
+    <div class="detail-by">Por ${r.authorName} · ${r.origin} · ${r.createdAt||''}</div>
+    <div class="detail-meta">
+      <div class="detail-meta-item"><div class="icon">⏱</div><div class="val">${r.time} min</div><div class="lbl">Tiempo</div></div>
+      <div class="detail-meta-item"><div class="icon">🍴</div><div class="val">${r.portions}</div><div class="lbl">Porciones</div></div>
+      <div class="detail-meta-item"><div class="icon">📊</div><div class="val">${r.difficulty}</div><div class="lbl">Dificultad</div></div>
+      <div class="detail-meta-item"><div class="icon">📍</div><div class="val" style="font-size:0.8rem">${r.origin}</div><div class="lbl">Municipio</div></div>
+    </div>
+    ${tabsHTML}
+    <div class="detail-tab-panel active" id="dtab-receta">
+      <div class="detail-desc">${r.desc}</div>
+      <div class="detail-h">🌿 Ingredientes</div>
+      <ul class="ingredients-list">${(r.ingredients||[]).map(i=>`<li>${i}</li>`).join('')}</ul>
+      <div class="detail-h">👩‍🍳 Preparación</div>
+      <ol class="steps-list">${(r.steps||[]).map((s,i)=>`<li><span class="step-num">${i+1}</span><span>${s}</span></li>`).join('')}</ol>
+    </div>
+    ${historyHTML}
+    ${curiosidadesHTML}
+    ${fotosTabHTML}
+  `;
+  openModal('recipeDetailModal');
+}
+
+function switchDetailTab(tab, btn) {
+  document.querySelectorAll('#detailModalBody .detail-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#detailModalBody .detail-tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = document.getElementById('dtab-'+tab);
+  if(panel) panel.classList.add('active');
+}
+
+function editRecipe(id) {
+  const db = getDB();
+  const r = db.recipes.find(x=>x.id===id);
+  if(!r) return;
+  document.getElementById('recipeFormTitle').textContent = '✏️ Editar Platillo';
+  document.getElementById('editRecipeId').value = id;
+  document.getElementById('rf_name').value = r.name;
+  document.getElementById('rf_category').value = r.category;
+  document.getElementById('rf_origin').value = r.origin;
+  document.getElementById('rf_time').value = r.time;
+  document.getElementById('rf_portions').value = r.portions;
+  document.getElementById('rf_difficulty').value = r.difficulty;
+  document.getElementById('rf_emoji').value = r.emoji||'';
+  document.getElementById('rf_color').value = r.color||'#f5ede0';
+  document.getElementById('rf_desc').value = r.desc;
+  document.getElementById('rf_ingredients').value = (r.ingredients||[]).join('\n');
+  document.getElementById('rf_steps').value = (r.steps||[]).join('\n');
+  document.getElementById('rf_history').value = r.history||'';
+  // Populate curiosidades
+  const cList = document.getElementById('curiosidadesInputList');
+  cList.innerHTML = '';
+  const curs = r.curiosidades && r.curiosidades.length ? r.curiosidades : [''];
+  curs.forEach(c => {
+    const row = document.createElement('div');
+    row.className = 'curiosidad-input-row';
+    row.innerHTML = `<input type="text" placeholder="Dato curioso..." value="${c.replace(/"/g,'&quot;')}"><button type="button" class="btn-icon remove" onclick="removeCuriosidadRow(this)">✕</button>`;
+    cList.appendChild(row);
+  });
+  // Populate images
+  const iList = document.getElementById('imageInputList');
+  iList.innerHTML = '';
+  const imgs = r.images && r.images.length ? r.images : [''];
+  imgs.forEach(url => {
+    const row = document.createElement('div');
+    row.className = 'curiosidad-input-row';
+    row.innerHTML = `<input type="url" placeholder="https://ejemplo.com/imagen.jpg" value="${url.replace(/"/g,'&quot;')}"><button type="button" class="btn-icon remove" onclick="removeImageRow(this)">✕</button>`;
+    iList.appendChild(row);
+  });
+  updateImgPreviews();
+  closeModal('recipeDetailModal');
+  openModal('recipeFormModal');
+}
+
+function saveRecipe() {
+  const id = document.getElementById('editRecipeId').value;
+  const name = document.getElementById('rf_name').value.trim();
+  if(!name) { showToast('⚠️ El nombre es obligatorio','error'); return; }
+  const recipe = {
+    name,
+    category: document.getElementById('rf_category').value,
+    origin: document.getElementById('rf_origin').value.trim()||'Tlaxcala',
+    time: parseInt(document.getElementById('rf_time').value)||45,
+    portions: parseInt(document.getElementById('rf_portions').value)||6,
+    difficulty: document.getElementById('rf_difficulty').value,
+    emoji: document.getElementById('rf_emoji').value.trim()||'🫔',
+    color: document.getElementById('rf_color').value,
+    desc: document.getElementById('rf_desc').value.trim(),
+    ingredients: document.getElementById('rf_ingredients').value.split('\n').map(s=>s.trim()).filter(Boolean),
+    steps: document.getElementById('rf_steps').value.split('\n').map(s=>s.trim()).filter(Boolean),
+    history: document.getElementById('rf_history').value.trim(),
+    curiosidades: Array.from(document.querySelectorAll('#curiosidadesInputList input')).map(i=>i.value.trim()).filter(Boolean),
+    images: Array.from(document.querySelectorAll('#imageInputList input')).map(i=>i.value.trim()).filter(Boolean),
+    featured: false
+  };
+  const db = getDB();
+  if(id) {
+    // Editing existing recipe — check if it's a pending recipe
+    const pendingIdx = db.pendingRecipes ? db.pendingRecipes.findIndex(r=>r.id===id) : -1;
+    if(pendingIdx >= 0) {
+      // Editing a pending recipe
+      recipe.id = id;
+      recipe.authorId = db.pendingRecipes[pendingIdx].authorId;
+      recipe.authorName = db.pendingRecipes[pendingIdx].authorName;
+      recipe.createdAt = db.pendingRecipes[pendingIdx].createdAt;
+      recipe.status = 'pending';
+      db.pendingRecipes[pendingIdx] = recipe;
+      saveDB(db);
+      closeModal('recipeFormModal');
+      document.getElementById('editRecipeId').value = '';
+      document.getElementById('recipeFormTitle').textContent = 'Nuevo Platillo';
+      showToast('✅ Receta actualizada (en espera de aprobación)', 'success');
+      return;
+    }
+    const idx = db.recipes.findIndex(r=>r.id===id);
+    recipe.id = id;
+    recipe.authorId = db.recipes[idx].authorId;
+    recipe.authorName = db.recipes[idx].authorName;
+    recipe.createdAt = db.recipes[idx].createdAt;
+    recipe.featured = db.recipes[idx].featured;
+    if(!recipe.history && recipe.history!=='') recipe.history = db.recipes[idx].history||'';
+    db.recipes[idx] = recipe;
+    showToast('✅ Platillo actualizado', 'success');
+  } else {
+    recipe.id = 'r'+Date.now();
+    recipe.authorId = currentUser.id;
+    recipe.authorName = currentUser.name+' '+currentUser.lastName;
+    recipe.createdAt = new Date().toISOString().slice(0,10);
+
+    // Admins publish directly; regular users go to pending queue
+    if(currentUser.role === 'admin') {
+      db.recipes.unshift(recipe);
+      showToast('🎉 Platillo publicado con éxito', 'success');
+    } else {
+      if(!db.pendingRecipes) db.pendingRecipes = [];
+      recipe.status = 'pending';
+      db.pendingRecipes.unshift(recipe);
+      showToast('📬 Receta enviada — el administrador la revisará antes de publicarla', 'info');
+    }
+  }
+  saveDB(db);
+  closeModal('recipeFormModal');
+  document.getElementById('editRecipeId').value = '';
+  document.getElementById('recipeFormTitle').textContent = 'Nuevo Platillo';
+  if(activeSection==='recetas') renderRecetas();
+  else if(activeSection==='home') renderHome();
+  if(currentUser && currentUser.role==='admin') renderAdmin();
+}
+
+function deleteRecipe(id) {
+  if(!confirm('¿Seguro que deseas eliminar este platillo?')) return;
+  const db = getDB();
+  db.recipes = db.recipes.filter(r=>r.id!==id);
+  saveDB(db);
+  showToast('🗑️ Platillo eliminado','info');
+  renderRecetas();
+  if(activeSection==='admin') renderAdmin();
+}
+
+function approveRecipe(id) {
+  const db = getDB();
+  if(!db.pendingRecipes) db.pendingRecipes = [];
+  const idx = db.pendingRecipes.findIndex(r=>r.id===id);
+  if(idx < 0) { showToast('⚠️ Receta no encontrada','error'); return; }
+  const recipe = db.pendingRecipes[idx];
+  recipe.status = 'approved';
+  delete recipe.status;
+  db.recipes.unshift(recipe);
+  db.pendingRecipes.splice(idx, 1);
+  saveDB(db);
+  showToast('✅ Receta aprobada y publicada', 'success');
+  renderAdmin();
+}
+
+function rejectRecipe(id) {
+  const reason = prompt('Motivo del rechazo (opcional):') ?? '';
+  const db = getDB();
+  if(!db.pendingRecipes) db.pendingRecipes = [];
+  const idx = db.pendingRecipes.findIndex(r=>r.id===id);
+  if(idx < 0) return;
+  db.pendingRecipes.splice(idx, 1);
+  saveDB(db);
+  showToast('🗑️ Receta rechazada y eliminada', 'info');
+  renderAdmin();
+}
+
+function editPendingRecipe(id) {
+  const db = getDB();
+  if(!db.pendingRecipes) return;
+  const r = db.pendingRecipes.find(x=>x.id===id);
+  if(!r) return;
+  document.getElementById('recipeFormTitle').textContent = '✏️ Editar Platillo (Pendiente)';
+  document.getElementById('editRecipeId').value = id;
+  document.getElementById('rf_name').value = r.name;
+  document.getElementById('rf_category').value = r.category;
+  document.getElementById('rf_origin').value = r.origin;
+  document.getElementById('rf_time').value = r.time;
+  document.getElementById('rf_portions').value = r.portions;
+  document.getElementById('rf_difficulty').value = r.difficulty;
+  document.getElementById('rf_emoji').value = r.emoji||'';
+  document.getElementById('rf_color').value = r.color||'#f5ede0';
+  document.getElementById('rf_desc').value = r.desc;
+  document.getElementById('rf_ingredients').value = (r.ingredients||[]).join('\n');
+  document.getElementById('rf_steps').value = (r.steps||[]).join('\n');
+  document.getElementById('rf_history').value = r.history||'';
+  const cList = document.getElementById('curiosidadesInputList');
+  cList.innerHTML = '';
+  const curs = r.curiosidades && r.curiosidades.length ? r.curiosidades : [''];
+  curs.forEach(c => {
+    const row = document.createElement('div');
+    row.className = 'curiosidad-input-row';
+    row.innerHTML = `<input type="text" placeholder="Dato curioso..." value="${c.replace(/"/g,'&quot;')}"><button type="button" class="btn-icon remove" onclick="removeCuriosidadRow(this)">✕</button>`;
+    cList.appendChild(row);
+  });
+  const iList = document.getElementById('imageInputList');
+  iList.innerHTML = '';
+  const imgs = r.images && r.images.length ? r.images : [''];
+  imgs.forEach(url => {
+    const row = document.createElement('div');
+    row.className = 'curiosidad-input-row';
+    row.innerHTML = `<input type="url" placeholder="https://ejemplo.com/imagen.jpg" value="${url.replace(/"/g,'&quot;')}"><button type="button" class="btn-icon remove" onclick="removeImageRow(this)">✕</button>`;
+    iList.appendChild(row);
+  });
+  updateImgPreviews();
+  openModal('recipeFormModal');
+}
+
+function renderHistoria() {
+  const db = getDB();
+  document.getElementById('historiaContent').innerHTML = db.historia.map(h=>`
+    <div style="margin-bottom:40px">
+      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px;flex-wrap:wrap">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--bark)">${h.title}</h3>
+        <span style="font-size:0.8rem;color:var(--text-light);background:var(--cream);padding:4px 12px;border-radius:20px">${h.period}</span>
+      </div>
+      <div class="history-section">
+        <h4>💡 Dato Destacado</h4>
+        <p style="font-style:italic;color:var(--text-mid)">${h.highlight}</p>
+      </div>
+      <div class="history-text"><p>${h.content}</p></div>
+    </div>
+  `).join('<hr style="border:none;border-top:2px solid var(--border);margin-bottom:40px">');
+}
+
+function renderAdmin() {
+  if(!currentUser||currentUser.role!=='admin') { showSection('home'); return; }
+  const db = getDB();
+  const pendingCount = (db.pendingRecipes||[]).length;
+  const recoveryCount = (db.passwordRecovery||[]).filter(r=>r.status==='pending').length;
+  document.getElementById('adminStats').innerHTML = `
+    <div class="stat-card"><div class="stat-val">${db.users.length}</div><div class="stat-lbl">👥 Usuarios</div></div>
+    <div class="stat-card"><div class="stat-val">${db.recipes.length}</div><div class="stat-lbl">🫔 Platillos</div></div>
+    <div class="stat-card"><div class="stat-val">${db.users.filter(u=>u.role==='admin').length}</div><div class="stat-lbl">⚙️ Admins</div></div>
+    <div class="stat-card"><div class="stat-val">${db.users.filter(u=>u.role==='usuario').length}</div><div class="stat-lbl">👩‍🍳 Cocineras/os</div></div>
+    <div class="stat-card" style="border-color:${pendingCount?'#ffc107':'var(--border)'}"><div class="stat-val" style="color:${pendingCount?'#856404':'inherit'}">${pendingCount}</div><div class="stat-lbl">⏳ Pendientes</div></div>
+    <div class="stat-card" style="border-color:${recoveryCount?'var(--terracotta)':'var(--border)'}"><div class="stat-val" style="color:${recoveryCount?'var(--terracotta)':'inherit'}">${recoveryCount}</div><div class="stat-lbl">🔐 Recuperaciones</div></div>
+  `;
+  // Update badges in tabs
+  const badge = document.getElementById('pendingBadgeCount');
+  if(badge) { badge.style.display = pendingCount ? 'inline' : 'none'; badge.textContent = pendingCount; }
+  updateRecoveryBadge();
+  adminTab(adminActiveTab);
+}
+
+function adminTab(tab) {
+  adminActiveTab = tab;
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(b=>{
+    const t = b.textContent.toLowerCase();
+    if(tab==='users'&&t.includes('usuario')) b.classList.add('active');
+    if(tab==='recipes'&&t.includes('platillo')) b.classList.add('active');
+    if(tab==='pending'&&t.includes('pendiente')) b.classList.add('active');
+    if(tab==='recovery'&&t.includes('recuperaci')) b.classList.add('active');
+  });
+  const db = getDB();
+  const el = document.getElementById('adminTabContent');
+
+  if(tab==='recovery') { renderRecoveryTab(); return; }
+
+  if(tab==='pending') {
+    const pending = db.pendingRecipes || [];
+    if(!pending.length) {
+      el.innerHTML = `
+        <div class="empty-pending">
+          <div class="ep-icon">✅</div>
+          <h4>Sin recetas pendientes</h4>
+          <p>Todas las recetas han sido revisadas. ¡Buen trabajo!</p>
+        </div>`;
+      return;
+    }
+    el.innerHTML = `
+      <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:20px">${pending.length} receta(s) esperando aprobación</p>
+      ${pending.map(r=>`
+        <div class="approval-card">
+          <div class="ac-emoji">${r.emoji||'🫔'}</div>
+          <div class="ac-body">
+            <div class="ac-title">${r.name}</div>
+            <div class="ac-meta">
+              👩‍🍳 ${r.authorName} &nbsp;·&nbsp; 📍 ${r.origin} &nbsp;·&nbsp; 🗂️ ${r.category} &nbsp;·&nbsp; 📅 ${r.createdAt}
+            </div>
+            <div class="ac-desc">${r.desc||'Sin descripción'}</div>
+            <div class="approval-actions">
+              <button class="btn-approve" onclick="approveRecipe('${r.id}')">✅ Aprobar y publicar</button>
+              <button class="btn-preview" onclick="viewPendingRecipe('${r.id}')">👁 Ver detalle</button>
+              <button class="btn-sm edit" onclick="editPendingRecipe('${r.id}')">✏️ Editar</button>
+              <button class="btn-reject" onclick="rejectRecipe('${r.id}')">✕ Rechazar</button>
+            </div>
+          </div>
+        </div>`).join('')}`;
+    return;
+  }
+
+  if(tab==='users') {
+    el.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+        <span style="font-size:0.85rem;color:var(--text-light)">${db.users.length} usuarios registrados</span>
+        ${currentUser.id==='u1'?`<button class="btn-primary" style="background:var(--bark);font-size:0.82rem;padding:8px 18px" onclick="openCreateAdmin()">👑 + Crear Administrador</button>`:''}
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Municipio</th><th>Desde</th><th>Acciones</th></tr></thead>
+        <tbody>
+          ${db.users.map(u=>`
+          <tr>
+            <td>
+              <strong>${u.name} ${u.lastName}</strong>
+              ${u.isMainAdmin?`<span class="admin-badge">👑 Principal</span>`:''}
+              ${u.createdBy?`<span style="font-size:0.72rem;color:var(--text-light);display:block">Creado por admin</span>`:''}
+            </td>
+            <td>${u.email}</td>
+            <td><span class="role-tag ${u.role}">${u.role}</span></td>
+            <td>${u.specialty||'-'}</td>
+            <td>${u.createdAt}</td>
+            <td>
+              ${u.isMainAdmin
+                ? `<span style="font-size:0.8rem;color:var(--text-light);font-style:italic">Cuenta protegida</span>`
+                : `<select onchange="changeRole('${u.id}',this.value)" style="padding:4px 8px;border-radius:6px;border:1px solid var(--border);font-size:0.8rem">
+                    <option value="visitante" ${u.role==='visitante'?'selected':''}>Visitante</option>
+                    <option value="usuario" ${u.role==='usuario'?'selected':''}>Usuario</option>
+                    <option value="admin" ${u.role==='admin'?'selected':''} ${currentUser.id!=='u1'?'disabled':''}>Admin</option>
+                  </select>
+                  <button class="btn-sm delete" style="margin-left:8px" onclick="deleteUser('${u.id}')">🗑</button>`
+              }
+            </td>
+          </tr>`).join('')}
+        </tbody>
+      </table>`;
+  } else {
+    el.innerHTML = `
+      <button class="btn-primary" style="margin-bottom:20px" onclick="openModal('recipeFormModal')">+ Nuevo Platillo</button>
+      <table class="data-table">
+        <thead><tr><th>Platillo</th><th>Categoría</th><th>Cocinera/o</th><th>Dificultad</th><th>Fecha</th><th>Acciones</th></tr></thead>
+        <tbody>
+          ${db.recipes.map(r=>`
+          <tr>
+            <td><span style="font-size:1.2rem">${r.emoji}</span> <strong>${r.name}</strong></td>
+            <td>${r.category}</td>
+            <td>${r.authorName}</td>
+            <td>${r.difficulty}</td>
+            <td>${r.createdAt}</td>
+            <td>
+              <button class="btn-sm edit" onclick="editRecipe('${r.id}')">Editar</button>
+              <button class="btn-sm delete" onclick="deleteRecipe('${r.id}')">🗑</button>
+            </td>
+          </tr>`).join('')}
+        </tbody>
+      </table>`;
+  }
+}
+
+function changeRole(uid, role) {
+  const db = getDB();
+  if(role==='admin'&&currentUser.id!=='u1') {
+    showToast('🔒 Solo la cuenta principal puede asignar el rol Admin','error');
+    renderAdmin(); return;
+  }
+  const u = db.users.find(x=>x.id===uid);
+  if(u) { u.role=role; saveDB(db); showToast('✅ Rol actualizado','success'); renderAdmin(); }
+}
+
+function openCreateAdmin() {
+  if(!currentUser||currentUser.id!=='u1') {
+    showToast('🔒 Solo la cuenta principal puede crear administradores','error');
+    return;
+  }
+  document.getElementById('adminStep1').style.display='block';
+  document.getElementById('adminStep2').style.display='none';
+  document.getElementById('adminStep3').style.display='none';
+  document.getElementById('masterPin').value='';
+  ['ca_name','ca_last','ca_email','ca_pass','ca_pass2','ca_area'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+  setStep(1);
+  openModal('createAdminModal');
+}
+
+function setStep(n) {
+  [1,2,3].forEach(i=>{
+    const dot=document.getElementById('sd'+i);
+    dot.className='step-dot'+(i<n?' done':i===n?' active':'');
+    if(i<3){const line=document.getElementById('sl'+i);line.className='step-line'+(i<n?' done':'');}
+  });
+}
+
+function verifyMasterPin() {
+  const db=getDB();
+  const pin=document.getElementById('masterPin').value.trim();
+  if(pin!==(db.masterPin||'1234')) {
+    showToast('❌ PIN incorrecto','error');
+    document.getElementById('masterPin').value='';
+    return;
+  }
+  document.getElementById('adminStep1').style.display='none';
+  document.getElementById('adminStep2').style.display='block';
+  setStep(2);
+}
+function adminStepBack() {
+  document.getElementById('adminStep2').style.display='none';
+  document.getElementById('adminStep1').style.display='block';
+  setStep(1);
+}
+function adminStepBack2() {
+  document.getElementById('adminStep3').style.display='none';
+  document.getElementById('adminStep2').style.display='block';
+  setStep(2);
+}
+
+function validateAdminForm() {
+  const name=document.getElementById('ca_name').value.trim();
+  const last=document.getElementById('ca_last').value.trim();
+  const email=document.getElementById('ca_email').value.trim();
+  const pass=document.getElementById('ca_pass').value;
+  const pass2=document.getElementById('ca_pass2').value;
+  const area=document.getElementById('ca_area').value.trim();
+  if(!name||!email||!pass){showToast('⚠️ Completa los campos obligatorios','error');return;}
+  if(pass.length<6){showToast('⚠️ La contraseña debe tener al menos 6 caracteres','error');return;}
+  if(pass!==pass2){showToast('❌ Las contraseñas no coinciden','error');return;}
+  const db=getDB();
+  if(db.users.find(u=>u.email===email)){showToast('⚠️ Correo ya registrado','error');return;}
+  document.getElementById('adminSummary').innerHTML=`
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 16px;align-items:center">
+      <span style="color:var(--text-light)">👤 Nombre</span><strong>${name} ${last}</strong>
+      <span style="color:var(--text-light)">📧 Correo</span><strong>${email}</strong>
+      <span style="color:var(--text-light)">🏷️ Rol</span><span><span class="role-tag admin">admin</span><span class="admin-badge">👑 Cuenta Admin</span></span>
+      <span style="color:var(--text-light)">🗂️ Área</span><strong>${area||'General'}</strong>
+      <span style="color:var(--text-light)">📅 Creado por</span><strong>${currentUser.name} ${currentUser.lastName}</strong>
+      <span style="color:var(--text-light)">🕐 Fecha</span><strong>${new Date().toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'})}</strong>
+    </div>`;
+  document.getElementById('adminStep2').style.display='none';
+  document.getElementById('adminStep3').style.display='block';
+  setStep(3);
+}
+
+function createAdmin() {
+  const name=document.getElementById('ca_name').value.trim();
+  const last=document.getElementById('ca_last').value.trim();
+  const email=document.getElementById('ca_email').value.trim();
+  const pass=document.getElementById('ca_pass').value;
+  const area=document.getElementById('ca_area').value.trim();
+  const db=getDB();
+  const newAdmin={id:'u'+Date.now(),name,lastName:last,email,password:pass,role:'admin',specialty:area||'Administración',createdAt:new Date().toISOString().slice(0,10),createdBy:currentUser.id,isMainAdmin:false};
+  db.users.push(newAdmin);
+  if(!db.adminLog) db.adminLog=[];
+  db.adminLog.push({action:'CREATE_ADMIN',by:currentUser.email,target:email,date:new Date().toISOString()});
+  saveDB(db);
+  closeModal('createAdminModal');
+  showToast(`👑 Administrador "${name}" creado con éxito`,'success');
+  renderAdmin();
+}
+
+function deleteUser(uid) {
+  const db=getDB();
+  const u=db.users.find(x=>x.id===uid);
+  if(u&&u.isMainAdmin){showToast('🔒 No se puede eliminar la cuenta principal','error');return;}
+  if(!confirm('¿Eliminar este usuario?')) return;
+  db.users=db.users.filter(u=>u.id!==uid);
+  saveDB(db);
+  showToast('🗑️ Usuario eliminado','info');
+  renderAdmin();
+}
+
+function openModal(id){
+  document.getElementById(id).classList.add('open');
+  // Show/hide pending notice in recipe form
+  if(id==='recipeFormModal') {
+    const notice = document.getElementById('pendingNoticeForm');
+    const editId = document.getElementById('editRecipeId').value;
+    if(notice) {
+      // Show notice only for new recipes by non-admin users
+      const isPending = currentUser && currentUser.role !== 'admin' && !editId;
+      notice.style.display = isPending ? 'flex' : 'none';
+    }
+  }
+}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+
+function viewPendingRecipe(id) {
+  const db = getDB();
+  const r = (db.pendingRecipes||[]).find(x=>x.id===id);
+  if(!r) return;
+  // Temporarily show as a regular recipe in detail modal
+  document.getElementById('detailModalTitle').textContent = '⏳ ' + r.name + ' (Pendiente)';
+  const thumbStyle = `background:linear-gradient(135deg,${r.color||'#f5ede0'},#eeddc8)`;
+  document.getElementById('detailModalBody').innerHTML = `
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:0.85rem;color:#856404">
+      ⏳ Esta receta está <strong>pendiente de aprobación</strong>. No es visible para el público.
+    </div>
+    <div class="detail-hero" style="${thumbStyle}">${r.emoji||'🫔'}</div>
+    <div class="detail-title">${r.name}</div>
+    <div class="detail-by">Por ${r.authorName} · ${r.origin} · ${r.createdAt||''}</div>
+    <div class="detail-meta">
+      <div class="detail-meta-item"><div class="icon">⏱</div><div class="val">${r.time} min</div><div class="lbl">Tiempo</div></div>
+      <div class="detail-meta-item"><div class="icon">🍴</div><div class="val">${r.portions}</div><div class="lbl">Porciones</div></div>
+      <div class="detail-meta-item"><div class="icon">📊</div><div class="val">${r.difficulty}</div><div class="lbl">Dificultad</div></div>
+      <div class="detail-meta-item"><div class="icon">📍</div><div class="val" style="font-size:0.8rem">${r.origin}</div><div class="lbl">Municipio</div></div>
+    </div>
+    <div class="detail-desc">${r.desc}</div>
+    <div class="detail-h">🌿 Ingredientes</div>
+    <ul class="ingredients-list">${(r.ingredients||[]).map(i=>`<li>${i}</li>`).join('')}</ul>
+    <div class="detail-h">👩‍🍳 Preparación</div>
+    <ol class="steps-list">${(r.steps||[]).map((s,i)=>`<li><span class="step-num">${i+1}</span><span>${s}</span></li>`).join('')}</ol>
+    ${r.history?`<div class="recipe-history-box" style="margin-top:16px"><div class="rh-header"><span style="font-size:1.4rem">📜</span><h4>Historia del platillo</h4></div><p>${r.history}</p></div>`:''}
+    <div style="display:flex;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+      <button class="btn-approve" onclick="approveRecipe('${r.id}');closeModal('recipeDetailModal')">✅ Aprobar y publicar</button>
+      <button class="btn-reject" onclick="rejectRecipe('${r.id}');closeModal('recipeDetailModal')">✕ Rechazar</button>
+    </div>
+  `;
+  openModal('recipeDetailModal');
+}
+document.querySelectorAll('.modal-overlay').forEach(m=>{
+  m.addEventListener('click',e=>{if(e.target===m) m.classList.remove('open');});
+});
+
+let toastTimer;
+function showToast(msg,type='info') {
+  const t=document.getElementById('toast');
+  const icons={success:'✅',error:'❌',info:'ℹ️'};
+  document.getElementById('toastIcon').textContent=icons[type]||'ℹ️';
+  document.getElementById('toastMsg').textContent=msg;
+  t.className=`toast ${type} show`;
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3500);
+}
+
+// ── Form helpers for new fields ──────────────────────────
+
+function addCuriosidadField() {
+  const list = document.getElementById('curiosidadesInputList');
+  const row = document.createElement('div');
+  row.className = 'curiosidad-input-row';
+  row.innerHTML = '<input type="text" placeholder="Dato curioso..."><button type="button" class="btn-icon remove" onclick="removeCuriosidadRow(this)">✕</button>';
+  list.appendChild(row);
+}
+
+function removeCuriosidadRow(btn) {
+  const list = document.getElementById('curiosidadesInputList');
+  if(list.children.length <= 1) { btn.previousElementSibling.value=''; return; }
+  btn.parentElement.remove();
+}
+
+function addImageField() {
+  const list = document.getElementById('imageInputList');
+  const row = document.createElement('div');
+  row.className = 'curiosidad-input-row';
+  const inp = document.createElement('input');
+  inp.type = 'url';
+  inp.placeholder = 'https://ejemplo.com/imagen.jpg';
+  inp.addEventListener('blur', updateImgPreviews);
+  row.appendChild(inp);
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'btn-icon remove';
+  btn.textContent = '✕';
+  btn.onclick = function() { removeImageRow(this); };
+  row.appendChild(btn);
+  list.appendChild(row);
+}
+
+function removeImageRow(btn) {
+  const list = document.getElementById('imageInputList');
+  if(list.children.length <= 1) { btn.previousElementSibling.value=''; updateImgPreviews(); return; }
+  btn.parentElement.remove();
+  updateImgPreviews();
+}
+
+function updateImgPreviews() {
+  const urls = Array.from(document.querySelectorAll('#imageInputList input')).map(i=>i.value.trim()).filter(u=>u.startsWith('http'));
+  const preview = document.getElementById('imgPreviewList');
+  if(!preview) return;
+  preview.innerHTML = urls.map(url=>`
+    <div class="img-preview-thumb">
+      <img src="${url}" onerror="this.parentElement.style.display='none'" onload="this.parentElement.style.display='block'">
+    </div>`).join('');
+}
+
+// Attach blur listeners when modal opens
+document.getElementById('recipeFormModal').addEventListener('click', function(e) {
+  if(e.target.matches('#imageInputList input')) {
+    e.target.addEventListener('blur', updateImgPreviews, {once:true});
+  }
+});
+
+// Reset new fields when form modal is closed
+const _origCloseModal = window.closeModal;
+window.closeModal = function(id) {
+  if(id==='recipeFormModal') {
+    const hf = document.getElementById('rf_history');
+    if(hf) hf.value='';
+    const cList = document.getElementById('curiosidadesInputList');
+    if(cList) cList.innerHTML = '<div class="curiosidad-input-row"><input type="text" placeholder="Ej: Este platillo solo se prepara en Semana Santa..."><button type="button" class="btn-icon remove" onclick="removeCuriosidadRow(this)">✕</button></div>';
+    const iList = document.getElementById('imageInputList');
+    if(iList) iList.innerHTML = '<div class="curiosidad-input-row"><input type="url" placeholder="https://ejemplo.com/imagen.jpg"><button type="button" class="btn-icon remove" onclick="removeImageRow(this)">✕</button></div>';
+    const prev = document.getElementById('imgPreviewList');
+    if(prev) prev.innerHTML='';
+  }
+  document.getElementById(id).classList.remove('open');
+};
+
+initDB();
+renderHome();
+document.getElementById('homeSection').style.display='block';
+document.getElementById('homeSection').classList.add('visible');
+
+// ── CAPTCHA ────────────────────────────────────────────────
+let _captchaAnswer = 0;
+
+function generateCaptcha() {
+  const ops = ['+', '-', '×'];
+  const op = ops[Math.floor(Math.random() * ops.length)];
+  let a, b, answer;
+  if (op === '+') { a = Math.floor(Math.random()*15)+1; b = Math.floor(Math.random()*15)+1; answer = a+b; }
+  else if (op === '-') { a = Math.floor(Math.random()*15)+5; b = Math.floor(Math.random()*a)+1; answer = a-b; }
+  else { a = Math.floor(Math.random()*9)+2; b = Math.floor(Math.random()*9)+2; answer = a*b; }
+  _captchaAnswer = answer;
+  document.getElementById('captchaQuestion').textContent = `${a} ${op} ${b} = ?`;
+  const inp = document.getElementById('captchaAnswer');
+  if(inp) { inp.value=''; inp.style.borderColor=''; }
+  const err = document.getElementById('captchaError');
+  if(err) err.style.display='none';
+}
+
+// Regenerate when register modal opens
+document.getElementById('registerModal').addEventListener('click', ()=>{});
+const _origOpenModal2 = window.openModal;
+window.openModal = function(id) {
+  _origOpenModal2(id);
+  if(id === 'registerModal') generateCaptcha();
+};
+
+// ── RECUPERACIÓN DE CONTRASEÑA ─────────────────────────────
+function submitPasswordRecovery() {
+  const email = document.getElementById('fpEmail').value.trim();
+  const msg   = document.getElementById('fpMessage').value.trim();
+  if(!email) { showToast('⚠️ Ingresa tu correo','error'); return; }
+  const db = getDB();
+  const user = db.users.find(u=>u.email===email);
+  if(!user) { showToast('❌ No existe una cuenta con ese correo','error'); return; }
+  if(!db.passwordRecovery) db.passwordRecovery = [];
+  // Avoid duplicates: one pending request per email
+  const existing = db.passwordRecovery.find(r=>r.email===email&&r.status==='pending');
+  if(existing) {
+    showToast('⏳ Ya tienes una solicitud pendiente. El administrador la atenderá pronto.','info');
+    closeModal('forgotPassModal');
+    return;
+  }
+  db.passwordRecovery.push({
+    id: 'rec'+Date.now(),
+    userId: user.id,
+    email,
+    name: user.name + ' ' + (user.lastName||''),
+    message: msg,
+    status: 'pending',
+    date: new Date().toISOString()
+  });
+  saveDB(db);
+  document.getElementById('fpEmail').value='';
+  document.getElementById('fpMessage').value='';
+  closeModal('forgotPassModal');
+  showToast('📨 Solicitud enviada. El administrador restablecerá tu contraseña pronto.','success');
+  // Update badge if admin is logged in
+  updateRecoveryBadge();
+}
+
+function updateRecoveryBadge() {
+  const db = getDB();
+  const count = (db.passwordRecovery||[]).filter(r=>r.status==='pending').length;
+  const badge = document.getElementById('recoveryBadgeCount');
+  if(badge) {
+    badge.textContent = count;
+    badge.style.display = count > 0 ? 'inline' : 'none';
+  }
+}
+
+function renderRecoveryTab() {
+  const db = getDB();
+  const list = (db.passwordRecovery||[]).slice().reverse();
+  const content = document.getElementById('adminTabContent');
+  if(!list.length) {
+    content.innerHTML = `<div class="empty-state"><div class="empty-icon">🔐</div><h3>Sin solicitudes</h3><p>No hay solicitudes de recuperación de contraseña.</p></div>`;
+    return;
+  }
+  content.innerHTML = `
+    <div style="margin-bottom:16px;font-size:0.85rem;color:var(--text-light)">
+      ${list.filter(r=>r.status==='pending').length} solicitud(es) pendiente(s) · ${list.length} en total
+    </div>
+    ${list.map(r=>{
+      const isPending = r.status === 'pending';
+      const dateStr = new Date(r.date).toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+      return `
+      <div class="recovery-card" style="${!isPending?'border-color:var(--border);opacity:0.75':''}">
+        <div class="rc-top">
+          <div>
+            <span class="rc-email">👤 ${r.name}</span>
+            <span style="color:var(--text-light);font-size:0.82rem;margin-left:8px">${r.email}</span>
+          </div>
+          <span class="recovery-status-badge ${r.status}">${r.status==='pending'?'⏳ Pendiente':'✅ Resuelta'}</span>
+        </div>
+        ${r.message?`<div class="rc-msg">💬 "${r.message}"</div>`:'<div class="rc-msg" style="color:var(--text-light);font-style:italic">Sin mensaje adicional.</div>'}
+        <div class="rc-date">📅 ${dateStr}</div>
+        ${isPending?`
+          <div style="margin-top:10px">
+            <input class="recovery-new-pass" type="text" id="newpass_${r.id}" placeholder="Nueva contraseña para este usuario...">
+          </div>
+          <div class="rc-actions" style="margin-top:8px">
+            <button class="btn-resolve" onclick="resolveRecovery('${r.id}')">✅ Restablecer contraseña</button>
+            <button class="btn-dismiss" onclick="dismissRecovery('${r.id}')">✕ Descartar</button>
+          </div>`:''}
+      </div>`;
+    }).join('')}`;
+}
+
+function resolveRecovery(recId) {
+  const db = getDB();
+  const req = (db.passwordRecovery||[]).find(r=>r.id===recId);
+  if(!req) return;
+  const newPass = document.getElementById('newpass_'+recId).value.trim();
+  if(!newPass || newPass.length < 4) { showToast('⚠️ La nueva contraseña debe tener al menos 4 caracteres','error'); return; }
+  const user = db.users.find(u=>u.id===req.userId);
+  if(!user) { showToast('❌ Usuario no encontrado','error'); return; }
+  user.password = newPass;
+  req.status = 'resolved';
+  req.resolvedBy = currentUser.email;
+  req.resolvedAt = new Date().toISOString();
+  saveDB(db);
+  showToast(`✅ Contraseña de ${user.name} restablecida correctamente`,'success');
+  updateRecoveryBadge();
+  renderRecoveryTab();
+}
+
+function dismissRecovery(recId) {
+  if(!confirm('¿Descartar esta solicitud sin restablecer la contraseña?')) return;
+  const db = getDB();
+  const req = (db.passwordRecovery||[]).find(r=>r.id===recId);
+  if(req) { req.status = 'resolved'; req.resolvedBy = currentUser.email; req.resolvedAt = new Date().toISOString(); }
+  saveDB(db);
+  showToast('🗑️ Solicitud descartada','info');
+  updateRecoveryBadge();
+  renderRecoveryTab();
+}
+</script>
+</body>
+</html>
