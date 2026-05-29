@@ -27,4 +27,13 @@ out/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
-.DS_Store
+
+# Local documentation and tools
+*.pdf
+extract_pdf.py
+extract_css.js
+cocina_tlaxcaltecav4.html
+arq.txt
+backend_architecture_docs.md
+frontend_architecture_docs.md
+sprint_status_report.md
