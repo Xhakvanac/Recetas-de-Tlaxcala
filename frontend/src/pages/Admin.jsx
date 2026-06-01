@@ -19,7 +19,7 @@ const Admin = () => {
 
   const fetchPending = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/recipes/pending', {
+      const res = await axios.get('/api/recipes/pending', {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       setPendingRecipes(res.data);
@@ -30,7 +30,7 @@ const Admin = () => {
 
   const fetchAllRecipes = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/recipes/all', {
+      const res = await axios.get('/api/recipes/all', {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       setAllRecipes(res.data);
@@ -41,7 +41,7 @@ const Admin = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/auth/users', {
+      const res = await axios.get('/api/auth/users', {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       setUsersList(res.data);
@@ -52,7 +52,7 @@ const Admin = () => {
 
   const handleStatusUpdate = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/recipes/${id}/status`, { status }, {
+      await axios.put(`/api/recipes/${id}/status`, { status }, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       fetchPending();
@@ -64,7 +64,7 @@ const Admin = () => {
   const handleDeleteRecipe = async (id) => {
     if (!window.confirm('¿Seguro que deseas eliminar este platillo?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/recipes/${id}`, {
+      await axios.delete(`/api/recipes/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       alert('Platillo eliminado correctamente');
@@ -80,7 +80,7 @@ const Admin = () => {
     }
     if (!window.confirm('¿Seguro que deseas eliminar este usuario? Sus recetas asociadas seguirán existiendo pero no tendrán autor activo.')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/auth/users/${id}`, {
+      await axios.delete(`/api/auth/users/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       alert('Usuario eliminado correctamente');
@@ -97,7 +97,7 @@ const Admin = () => {
     const newRole = targetUser.role === 'admin' ? 'usuario' : 'admin';
     if (!window.confirm(`¿Seguro que deseas cambiar el rol de este usuario a "${newRole}"?`)) return;
     try {
-      await axios.put(`http://localhost:5000/api/auth/users/${targetUser._id}`, {
+      await axios.put(`/api/auth/users/${targetUser._id}`, {
         ...targetUser,
         role: newRole
       }, {

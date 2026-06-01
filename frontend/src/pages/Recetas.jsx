@@ -14,7 +14,7 @@ const Recetas = () => {
 
   const fetchRecipes = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/recipes');
+      const res = await axios.get('/api/recipes');
       setRecipes(res.data);
     } catch (err) {
       console.error(err);
@@ -31,7 +31,7 @@ const Recetas = () => {
     e.stopPropagation();
     if (!window.confirm('¿Seguro que deseas eliminar este platillo?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/recipes/${id}`, {
+      await axios.delete(`/api/recipes/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       alert('Platillo eliminado!');

@@ -15,7 +15,7 @@ const Home = () => {
 
   const fetchStats = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/recipes/stats');
+      const res = await axios.get('/api/recipes/stats');
       setStats(res.data);
     } catch (err) {
       console.error(err);
@@ -24,7 +24,7 @@ const Home = () => {
 
   const fetchFeatured = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/recipes');
+      const res = await axios.get('/api/recipes');
       // Just take first 3 as featured for simplicity
       setFeatured(res.data.slice(0, 3));
     } catch (err) {

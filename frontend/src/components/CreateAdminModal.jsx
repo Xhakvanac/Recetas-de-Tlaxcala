@@ -25,7 +25,7 @@ const CreateAdminModal = () => {
   const handleCreateAdmin = async () => {
     try {
       setError('');
-      await axios.post('http://localhost:5000/api/auth/create-admin', {
+      await axios.post('/api/auth/create-admin', {
         ...formData,
         masterPin: pin
       }, {

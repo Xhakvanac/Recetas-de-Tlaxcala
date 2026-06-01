@@ -86,13 +86,13 @@ const RecipeFormModal = ({ onRecipeSaved }) => {
 
       if (editingRecipe) {
         // Edit Recipe
-        await axios.put(`http://localhost:5000/api/recipes/${editingRecipe._id}`, payload, {
+        await axios.put(`/api/recipes/${editingRecipe._id}`, payload, {
           headers: { Authorization: `Bearer ${user.token}` }
         });
         alert('Receta actualizada!');
       } else {
         // Add Recipe
-        await axios.post('http://localhost:5000/api/recipes', payload, {
+        await axios.post('/api/recipes', payload, {
           headers: { Authorization: `Bearer ${user.token}` }
         });
         alert('Receta guardada exitosamente!');
